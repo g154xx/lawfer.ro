@@ -20,8 +20,8 @@ const Login = () => {
     e.preventDefault();
     // Here you would typically authenticate with your backend
     toast({
-      title: "Login Successful",
-      description: "Welcome back! You now have access to premium features.",
+      title: "Conectare reușită",
+      description: "Bun venit înapoi! Acum aveți acces la funcțiile premium.",
     });
   };
 
@@ -40,15 +40,15 @@ const Login = () => {
           <div className="max-w-md mx-auto">
             <Card>
               <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Welcome Back</CardTitle>
+                <CardTitle className="text-2xl">Bun venit înapoi</CardTitle>
                 <CardDescription>
-                  Sign in to access your premium legal tools and consultation history
+                  Conectați-vă pentru a accesa instrumentele juridice premium și istoricul consultațiilor
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <Label htmlFor="email">Email Address</Label>
+                    <Label htmlFor="email">Adresa de email</Label>
                     <Input
                       id="email"
                       name="email"
@@ -56,12 +56,12 @@ const Login = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="your@email.com"
+                      placeholder="email@exemplu.com"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password">Parola</Label>
                     <Input
                       id="password"
                       name="password"
@@ -74,41 +74,41 @@ const Login = () => {
                   </div>
 
                   <Button type="submit" size="lg" className="w-full">
-                    Sign In
+                    Conectare
                   </Button>
                 </form>
 
                 <div className="mt-6 text-center space-y-4">
                   <Link to="/forgot-password" className="text-sm text-primary hover:underline">
-                    Forgot your password?
+                    Ați uitat parola?
                   </Link>
                   
                   <div className="text-sm text-muted-foreground">
-                    Don't have an account?{" "}
+                    Nu aveți un cont?{" "}
                     <Link to="/pricing" className="text-primary hover:underline">
-                      Subscribe now
+                      Abonați-vă acum
                     </Link>
                   </div>
                 </div>
 
                 <div className="mt-8 p-4 bg-secondary/30 rounded-lg">
-                  <h4 className="font-semibold mb-2 text-center">Premium Benefits</h4>
+                  <h4 className="font-semibold mb-2 text-center">Beneficii premium</h4>
                   <ul className="space-y-1 text-sm">
                     <li className="flex items-center">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                      Unlimited AI legal consultations
+                      Consultații juridice IA nelimitate
                     </li>
                     <li className="flex items-center">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                      Document analysis and review
+                      Analiză și revizuire documente
                     </li>
                     <li className="flex items-center">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                      Priority attorney access
+                      Acces prioritar la avocați
                     </li>
                     <li className="flex items-center">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                      Legal form templates
+                      Șabloane de formulare juridice
                     </li>
                   </ul>
                 </div>

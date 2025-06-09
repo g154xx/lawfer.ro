@@ -25,10 +25,10 @@ const Index = () => {
         <section className="py-16 bg-secondary/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">AI Legal Assistant</h2>
+              <h2 className="text-3xl font-bold mb-4">Asistent juridic IA</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Get instant legal guidance with our advanced AI-powered legal assistant. 
-                Available 24/7 for premium clients.
+                Obțineți îndrumare juridică instantanee cu asistentul nostru juridic avansat bazat pe IA. 
+                Disponibil 24/7 pentru clienții premium.
               </p>
             </div>
             <div className="max-w-4xl mx-auto">
@@ -37,39 +37,39 @@ const Index = () => {
                   <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <Search className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl">Premium AI Legal Consultation</CardTitle>
+                  <CardTitle className="text-2xl">Consultație juridică premium cu IA</CardTitle>
                   <CardDescription className="text-lg">
-                    Advanced AI-powered legal research and consultation tool
+                    Instrument avansat de cercetare și consultanță juridică bazat pe IA
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="text-center p-4">
                       <FileText className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold">Document Review</h3>
-                      <p className="text-sm text-muted-foreground">AI-powered contract and document analysis</p>
+                      <h3 className="font-semibold">Revizuire documente</h3>
+                      <p className="text-sm text-muted-foreground">Analiză contracte și documente bazată pe IA</p>
                     </div>
                     <div className="text-center p-4">
                       <BookOpen className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold">Legal Research</h3>
-                      <p className="text-sm text-muted-foreground">Instant access to case law and statutes</p>
+                      <h3 className="font-semibold">Cercetare juridică</h3>
+                      <p className="text-sm text-muted-foreground">Acces instant la jurisprudență și statute</p>
                     </div>
                     <div className="text-center p-4">
                       <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold">Expert Consultation</h3>
-                      <p className="text-sm text-muted-foreground">24/7 AI guidance on legal matters</p>
+                      <h3 className="font-semibold">Consultație expert</h3>
+                      <p className="text-sm text-muted-foreground">Îndrumare IA 24/7 pentru probleme juridice</p>
                     </div>
                   </div>
                   <div className="text-center space-y-4">
                     <Badge variant="secondary" className="text-lg px-4 py-2">
-                      Premium Feature - $99/month
+                      Funcție premium - 99€/lună
                     </Badge>
                     <div className="space-x-4">
                       <Button size="lg" asChild>
-                        <Link to="/ai-lawyer">Try AI Assistant</Link>
+                        <Link to="/ai-lawyer">Încearcă asistentul IA</Link>
                       </Button>
                       <Button variant="outline" size="lg" asChild>
-                        <Link to="/pricing">View Pricing</Link>
+                        <Link to="/pricing">Vezi prețurile</Link>
                       </Button>
                     </div>
                   </div>
@@ -82,16 +82,16 @@ const Index = () => {
         {/* Call to Action */}
         <section className="py-16 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Legal Help?</h2>
+            <h2 className="text-3xl font-bold mb-4">Gata să obțineți ajutor juridic?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Schedule a consultation today and get expert legal advice
+              Programați o consultație astăzi și obțineți consiliere juridică de expert
             </p>
             <div className="space-x-4">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">Schedule Consultation</Link>
+                <Link to="/contact">Programare consultație</Link>
               </Button>
               <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                <Link to="/about">Learn More</Link>
+                <Link to="/about">Aflați mai multe</Link>
               </Button>
             </div>
           </div>

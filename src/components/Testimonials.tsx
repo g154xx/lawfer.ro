@@ -7,23 +7,23 @@ const Testimonials = () => {
     {
       name: "Sarah Johnson",
       title: "CEO, TechStart Inc.",
-      content: "John helped us navigate a complex acquisition. His expertise in corporate law and attention to detail made all the difference. Highly recommended!",
+      content: "Yarina ne-a ajutat să navigăm printr-o achiziție complexă. Expertiza ei în dreptul societăților și atenția la detalii au făcut toată diferența. Recomand cu încredere!",
       rating: 5,
-      case: "M&A Transaction"
+      case: "Tranzacție M&A"
     },
     {
       name: "Michael Chen",
-      title: "Real Estate Developer",
-      content: "Outstanding legal representation in our commercial real estate deals. Professional, responsive, and always delivers results.",
+      title: "Dezvoltator imobiliar",
+      content: "Reprezentare juridică excepțională în afacerile noastre imobiliare comerciale. Profesională, receptivă și livrează întotdeauna rezultate.",
       rating: 5,
-      case: "Commercial Real Estate"
+      case: "Imobiliare comerciale"
     },
     {
       name: "Lisa Rodriguez",
-      title: "Startup Founder",
-      content: "The AI legal tool is a game-changer! Quick answers to legal questions and excellent follow-up consultation. Worth every penny.",
+      title: "Fondator startup",
+      content: "Instrumentul juridic IA este o schimbare majoră! Răspunsuri rapide la întrebări juridice și consultanță excelentă de urmărire. Merită fiecare ban.",
       rating: 5,
-      case: "AI Legal Assistant"
+      case: "Asistent juridic IA"
     }
   ];
 
@@ -31,9 +31,9 @@ const Testimonials = () => {
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Client Testimonials</h2>
+          <h2 className="text-3xl font-bold mb-4">Mărturii ale clienților</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See what our clients say about our legal services and expertise
+            Vedeți ce spun clienții noștri despre serviciile noastre juridice și expertiza
           </p>
         </div>
         

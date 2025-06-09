@@ -9,11 +9,11 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navigationItems = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Practice Areas", href: "/practice-areas" },
-    { name: "AI Lawyer", href: "/ai-lawyer" },
-    { name: "Resources", href: "/resources" },
+    { name: "Acasă", href: "/" },
+    { name: "Despre", href: "/about" },
+    { name: "Domenii de practică", href: "/practice-areas" },
+    { name: "Avocat IA", href: "/ai-lawyer" },
+    { name: "Resurse", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -26,7 +26,10 @@ const Header = () => {
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <Gavel className="h-5 w-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold">LegalPro</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold">Lawfer</span>
+              <span className="text-xs text-muted-foreground -mt-1">by Yarina Laufer</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,11 +50,11 @@ const Header = () => {
             <Button variant="outline" size="sm" asChild>
               <Link to="/login">
                 <User className="h-4 w-4 mr-2" />
-                Login
+                Conectare
               </Link>
             </Button>
             <Button size="sm" asChild>
-              <Link to="/contact">Get Consultation</Link>
+              <Link to="/contact">Consultație</Link>
             </Button>
           </div>
 
@@ -59,7 +62,7 @@ const Header = () => {
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
-                <span className="sr-only">Toggle menu</span>
+                <span className="sr-only">Deschide meniu</span>
                 <svg
                   className="h-6 w-6"
                   fill="none"
@@ -91,12 +94,12 @@ const Header = () => {
                   <Button variant="outline" className="w-full" asChild>
                     <Link to="/login" onClick={() => setIsOpen(false)}>
                       <User className="h-4 w-4 mr-2" />
-                      Login
+                      Conectare
                     </Link>
                   </Button>
                   <Button className="w-full" asChild>
                     <Link to="/contact" onClick={() => setIsOpen(false)}>
-                      Get Consultation
+                      Consultație
                     </Link>
                   </Button>
                 </div>

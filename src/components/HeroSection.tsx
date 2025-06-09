@@ -10,24 +10,24 @@ const HeroSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <Badge variant="secondary" className="mb-6">
-            Trusted Legal Excellence Since 2024
+            Excelență juridică de încredere din 2024
           </Badge>
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            Expert Legal Representation You Can Trust
+            Reprezentare juridică de experți în care puteți avea încredere
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Providing comprehensive legal services with cutting-edge AI-powered tools. 
-            From corporate law to litigation, we deliver results that matter.
+            Oferim servicii juridice cuprinzătoare cu instrumente de ultimă generație bazate pe IA. 
+            De la dreptul societăților la litigii, livrăm rezultate care contează.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" className="text-lg px-8" asChild>
-              <Link to="/contact">Schedule Free Consultation</Link>
+              <Link to="/contact">Programare consultație gratuită</Link>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8" asChild>
-              <Link to="/ai-lawyer">Try AI Legal Assistant</Link>
+              <Link to="/ai-lawyer">Încearcă asistentul juridic IA</Link>
             </Button>
           </div>
           
@@ -38,21 +38,21 @@ const HeroSection = () => {
                 <Gavel className="h-8 w-8 text-primary" />
               </div>
               <div className="text-3xl font-bold text-primary mb-2">15+</div>
-              <div className="text-muted-foreground">Years Experience</div>
+              <div className="text-muted-foreground">Ani de experiență</div>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-primary" />
               </div>
               <div className="text-3xl font-bold text-primary mb-2">500+</div>
-              <div className="text-muted-foreground">Cases Won</div>
+              <div className="text-muted-foreground">Cazuri câștigate</div>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileText className="h-8 w-8 text-primary" />
               </div>
               <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-              <div className="text-muted-foreground">AI Legal Support</div>
+              <div className="text-muted-foreground">Suport juridic IA</div>
             </div>
           </div>
         </div>
