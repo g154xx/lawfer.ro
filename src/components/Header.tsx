@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Phone, Mail, MapPin, User } from "lucide-react";
+import { Phone, Mail, MapPin, User, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -19,8 +19,8 @@ const Header = () => {
 
   return (
     <>
-      {/* Top Bar cu informații de contact - specific site-urilor românești */}
-      <div className="bg-primary text-primary-foreground py-2 text-sm">
+      {/* Top Bar cu informații de contact - stil Hogan Lovells */}
+      <div className="bg-muted text-muted-foreground py-2 text-sm border-b">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6">
@@ -44,53 +44,43 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* Main Header - stil Hogan Lovells */}
+      <header className="sticky top-0 z-50 w-full bg-background border-b shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex h-20 items-center justify-between">
-            {/* Logo nou Y+L */}
+          <div className="flex h-16 items-center justify-between">
+            {/* Logo - stil Hogan Lovells */}
             <Link to="/" className="flex items-center space-x-3">
-              <div className="relative w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center overflow-hidden">
-                {/* Logo Y+L combinat */}
-                <div className="relative text-primary-foreground font-bold text-xl">
-                  <div className="absolute -left-1 top-0 transform">Y</div>
-                  <div className="absolute left-2 top-0 transform">L</div>
-                  <div className="absolute left-1 top-0 w-3 h-3 border-l-2 border-b-2 border-primary-foreground transform rotate-45 translate-y-1"></div>
-                </div>
+              <div className="text-2xl font-bold text-primary font-source-serif">
+                Lawfer
               </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-primary">Lawfer</span>
-                <span className="text-xs text-muted-foreground -mt-1">by Yarina Laufer</span>
+              <div className="hidden sm:block text-sm text-muted-foreground font-source-sans">
+                by Yarina Laufer
               </div>
             </Link>
 
-            {/* Desktop Navigation - stil românesc cu separatori */}
-            <nav className="hidden lg:flex items-center">
-              {navigationItems.map((item, index) => (
-                <div key={item.name} className="flex items-center">
-                  <Link
-                    to={item.href}
-                    className="px-4 py-2 text-sm font-medium transition-colors hover:text-primary relative group"
-                  >
-                    {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-                  </Link>
-                  {index < navigationItems.length - 1 && (
-                    <div className="w-px h-4 bg-border mx-2"></div>
-                  )}
-                </div>
+            {/* Desktop Navigation - stil clean Hogan Lovells */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 relative group"
+                >
+                  {item.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                </Link>
               ))}
             </nav>
 
-            {/* Desktop CTA - stil românesc */}
+            {/* Desktop CTA - stil Hogan Lovells */}
             <div className="hidden lg:flex items-center space-x-4">
-              <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary" asChild>
                 <Link to="/login">
                   <User className="h-4 w-4 mr-2" />
                   Cont Client
                 </Link>
               </Button>
-              <Button size="sm" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70" asChild>
+              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
                 <Link to="/contact">Consultație Gratuită</Link>
               </Button>
             </div>
@@ -99,20 +89,8 @@ const Header = () => {
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
                 <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
                   <span className="sr-only">Deschide meniu</span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-80">
@@ -141,13 +119,13 @@ const Header = () => {
                   ))}
                   
                   <div className="pt-4 space-y-3">
-                    <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
+                    <Button variant="outline" className="w-full" asChild>
                       <Link to="/login" onClick={() => setIsOpen(false)}>
                         <User className="h-4 w-4 mr-2" />
                         Cont Client
                       </Link>
                     </Button>
-                    <Button className="w-full bg-gradient-to-r from-primary to-primary/80" asChild>
+                    <Button className="w-full bg-primary hover:bg-primary/90" asChild>
                       <Link to="/contact" onClick={() => setIsOpen(false)}>
                         Consultație Gratuită
                       </Link>

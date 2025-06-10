@@ -7,83 +7,83 @@
 
 @layer base {
   :root {
-    --background: 222 84% 5%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 210 40% 8%;
 
-    --card: 222 84% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 8%;
 
-    --popover: 222 84% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 8%;
 
-    --primary: 43 74% 66%;
-    --primary-foreground: 222 84% 5%;
+    --primary: 355 85% 47%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 217 19% 27%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 40% 8%;
 
-    --muted: 215 28% 17%;
-    --muted-foreground: 0 0% 64%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 217 19% 27%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 210 40% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 28% 17%;
-    --input: 215 28% 17%;
-    --ring: 43 74% 66%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 355 85% 47%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 222 84% 5%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 43 74% 66%;
-    --sidebar-primary-foreground: 222 84% 5%;
-    --sidebar-accent: 217 19% 27%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 215 28% 17%;
-    --sidebar-ring: 43 74% 66%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 210 40% 8%;
+    --sidebar-primary: 355 85% 47%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 210 40% 8%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 355 85% 47%;
   }
 
   .dark {
-    --background: 222 84% 5%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 210 40% 8%;
 
-    --card: 222 84% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 8%;
 
-    --popover: 222 84% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 8%;
 
-    --primary: 43 74% 66%;
-    --primary-foreground: 222 84% 5%;
+    --primary: 355 85% 47%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 217 19% 27%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 40% 8%;
 
-    --muted: 215 28% 17%;
-    --muted-foreground: 0 0% 64%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 217 19% 27%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 210 40% 8%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 28% 17%;
-    --input: 215 28% 17%;
-    --ring: 43 74% 66%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 355 85% 47%;
 
-    --sidebar-background: 222 84% 5%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 43 74% 66%;
-    --sidebar-primary-foreground: 222 84% 5%;
-    --sidebar-accent: 217 19% 27%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 215 28% 17%;
-    --sidebar-ring: 43 74% 66%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 210 40% 8%;
+    --sidebar-primary: 355 85% 47%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 210 40% 8%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 355 85% 47%;
   }
 }
 
@@ -93,6 +93,81 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter;
+    @apply bg-background text-foreground font-source-sans;
+  }
+}
+
+/* Hogan Lovells inspired hero background with animated images */
+@layer components {
+  .hero-background {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8f9fa" width="1200" height="800"/><g opacity="0.1"><circle fill="%23dc3545" cx="200" cy="200" r="100"/><circle fill="%23dc3545" cx="800" cy="300" r="80"/><circle fill="%23dc3545" cx="1000" cy="150" r="60"/><circle fill="%23dc3545" cx="400" cy="500" r="90"/><circle fill="%23dc3545" cx="700" cy="600" r="70"/></g></svg>');
+    background-size: cover;
+    background-position: center;
+    animation: subtle-float 20s ease-in-out infinite;
+  }
+  
+  .floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .floating-element {
+    position: absolute;
+    opacity: 0.1;
+    animation: float 15s ease-in-out infinite;
+  }
+  
+  .floating-element:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .floating-element:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: 3s;
+  }
+  
+  .floating-element:nth-child(3) {
+    bottom: 30%;
+    left: 60%;
+    animation-delay: 6s;
+  }
+  
+  .floating-element:nth-child(4) {
+    top: 40%;
+    right: 40%;
+    animation-delay: 9s;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-30px) rotate(2deg);
+  }
+}
+
+@keyframes subtle-float {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 10% 10%;
   }
 }
