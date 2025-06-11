@@ -2,6 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Gavel, Users, FileText, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -26,9 +27,16 @@ const About = () => {
           <Card className="mb-16">
             <div className="md:flex">
               <div className="md:w-1/3 bg-gradient-to-br from-primary/10 to-primary/5 p-8 flex items-center justify-center">
-                <div className="w-64 h-64 bg-primary/20 rounded-full flex items-center justify-center">
-                  <div className="text-8xl font-bold text-primary font-playfair">YL</div>
-                </div>
+                <Avatar className="w-64 h-64">
+                  <AvatarImage 
+                    src="/lovable-uploads/65b7c728-9d63-446d-a365-5c1f629c65de.png" 
+                    alt="Yarina Laufer" 
+                    className="object-cover"
+                  />
+                  <AvatarFallback className="text-8xl font-bold text-primary font-playfair bg-primary/20">
+                    YL
+                  </AvatarFallback>
+                </Avatar>
               </div>
               <div className="md:w-2/3">
                 <CardHeader>

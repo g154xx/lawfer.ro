@@ -2,6 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 
 const LawyerProfile = () => {
@@ -19,9 +20,16 @@ const LawyerProfile = () => {
           <Card className="overflow-hidden">
             <div className="md:flex">
               <div className="md:w-1/3 bg-gradient-to-br from-primary/10 to-primary/5 p-8 flex items-center justify-center">
-                <div className="w-48 h-48 bg-primary/20 rounded-full flex items-center justify-center">
-                  <div className="text-6xl font-bold text-primary font-playfair">YL</div>
-                </div>
+                <Avatar className="w-48 h-48">
+                  <AvatarImage 
+                    src="/lovable-uploads/65b7c728-9d63-446d-a365-5c1f629c65de.png" 
+                    alt="Yarina Laufer" 
+                    className="object-cover"
+                  />
+                  <AvatarFallback className="text-6xl font-bold text-primary font-playfair bg-primary/20">
+                    YL
+                  </AvatarFallback>
+                </Avatar>
               </div>
               <div className="md:w-2/3">
                 <CardHeader>
