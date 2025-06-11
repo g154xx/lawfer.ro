@@ -21,9 +21,10 @@ export default {
 		extend: {
 			fontFamily: {
 				'source-sans': ['Source Sans Pro', 'sans-serif'],
-				'sans': ['Source Sans Pro', 'sans-serif'],
+				'sans': ['Open Sans', 'sans-serif'],
 				'source-serif': ['Source Serif Pro', 'serif'],
 				'serif': ['Source Serif Pro', 'serif'],
+				'playfair': ['Playfair Display', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

@@ -48,13 +48,15 @@ const Header = () => {
       <header className="sticky top-0 z-50 w-full bg-background border-b shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            {/* Logo - stil Hogan Lovells */}
-            <Link to="/" className="flex items-center space-x-3">
-              <div className="text-2xl font-bold text-primary font-source-serif">
-                Lawfer
-              </div>
-              <div className="hidden sm:block text-sm text-muted-foreground font-source-sans">
-                by Yarina Laufer
+            {/* Logo Profesional - stil Hogan Lovells */}
+            <Link to="/" className="flex items-center space-x-4">
+              <div className="flex flex-col">
+                <div className="text-3xl font-bold text-primary font-playfair tracking-tight">
+                  LAWFER
+                </div>
+                <div className="text-xs text-muted-foreground font-source-sans tracking-wide -mt-1">
+                  by Yarina Laufer
+                </div>
               </div>
             </Link>
 
@@ -64,7 +66,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 relative group"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 relative group font-source-sans"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
@@ -74,13 +76,13 @@ const Header = () => {
 
             {/* Desktop CTA - stil Hogan Lovells */}
             <div className="hidden lg:flex items-center space-x-4">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary" asChild>
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary font-source-sans" asChild>
                 <Link to="/login">
                   <User className="h-4 w-4 mr-2" />
                   Cont Client
                 </Link>
               </Button>
-              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
+              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-source-sans" asChild>
                 <Link to="/contact">Consultație Gratuită</Link>
               </Button>
             </div>
@@ -111,7 +113,7 @@ const Header = () => {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="text-lg font-medium transition-colors hover:text-primary border-b border-border pb-2"
+                      className="text-lg font-medium transition-colors hover:text-primary border-b border-border pb-2 font-source-sans"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
@@ -119,13 +121,13 @@ const Header = () => {
                   ))}
                   
                   <div className="pt-4 space-y-3">
-                    <Button variant="outline" className="w-full" asChild>
+                    <Button variant="outline" className="w-full font-source-sans" asChild>
                       <Link to="/login" onClick={() => setIsOpen(false)}>
                         <User className="h-4 w-4 mr-2" />
                         Cont Client
                       </Link>
                     </Button>
-                    <Button className="w-full bg-primary hover:bg-primary/90" asChild>
+                    <Button className="w-full bg-primary hover:bg-primary/90 font-source-sans" asChild>
                       <Link to="/contact" onClick={() => setIsOpen(false)}>
                         Consultație Gratuită
                       </Link>
