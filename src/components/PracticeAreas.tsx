@@ -8,27 +8,27 @@ const PracticeAreas = () => {
   const practiceAreas = [
     {
       icon: Gavel,
-      title: "Corporate Law",
-      description: "Comprehensive business legal services including contracts, mergers, acquisitions, and compliance.",
-      features: ["Contract Negotiation", "M&A Transactions", "Corporate Governance", "Compliance"]
+      title: "Drept societar",
+      description: "Servicii juridice complete pentru afaceri, inclusiv contracte, fuziuni, achiziții și conformitatea.",
+      features: ["Negociere contracte", "Tranzacții M&A", "Guvernanță corporativă", "Conformitate"]
     },
     {
       icon: Users,
-      title: "Litigation",
-      description: "Aggressive representation in civil and commercial litigation with a proven track record.",
-      features: ["Civil Litigation", "Commercial Disputes", "Employment Law", "Contract Disputes"]
+      title: "Litigii",
+      description: "Reprezentare agresivă în litigii civile și comerciale cu o expertiză dovedită.",
+      features: ["Litigii civile", "Dispute comerciale", "Dreptul muncii", "Dispute contractuale"]
     },
     {
       icon: FileText,
-      title: "Real Estate Law",
-      description: "Full-service real estate legal support for residential and commercial transactions.",
-      features: ["Property Transactions", "Title Issues", "Zoning Law", "Landlord-Tenant"]
+      title: "Drept imobiliar",
+      description: "Suport juridic complet pentru tranzacții imobiliare rezidențiale și comerciale.",
+      features: ["Tranzacții imobiliare", "Probleme de titlu", "Drept urbanistic", "Relații proprietar-chiriaș"]
     },
     {
       icon: BookOpen,
-      title: "Intellectual Property",
-      description: "Protecting your innovations, trademarks, copyrights, and trade secrets.",
-      features: ["Patent Applications", "Trademark Registration", "Copyright Protection", "IP Litigation"]
+      title: "Proprietate intelectuală",
+      description: "Protejarea inovațiilor, mărcilor comerciale, drepturilor de autor și secretelor comerciale.",
+      features: ["Aplicații de brevete", "Înregistrare mărci", "Protecție drepturi de autor", "Litigii PI"]
     }
   ];
 
@@ -36,9 +36,9 @@ const PracticeAreas = () => {
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Practice Areas</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We provide expert legal services across multiple practice areas with specialized knowledge and experience.
+          <h2 className="text-3xl font-bold mb-4 font-playfair">Domenii de practică</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-source-sans">
+            Oferim servicii juridice experţe în multiple domenii de practică cu cunoştinţe specializate şi experienţă.
           </p>
         </div>
         
@@ -49,11 +49,11 @@ const PracticeAreas = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <area.icon className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{area.title}</CardTitle>
-                <CardDescription>{area.description}</CardDescription>
+                <CardTitle className="text-xl font-playfair">{area.title}</CardTitle>
+                <CardDescription className="font-source-sans">{area.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-sm font-source-sans">
                   {area.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
@@ -68,7 +68,7 @@ const PracticeAreas = () => {
         
         <div className="text-center">
           <Button size="lg" variant="outline" asChild>
-            <Link to="/practice-areas">View All Practice Areas</Link>
+            <Link to="/practice-areas">Vezi toate domeniile de practică</Link>
           </Button>
         </div>
       </div>

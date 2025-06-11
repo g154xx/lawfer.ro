@@ -25,8 +25,8 @@ const Index = () => {
         <section className="py-16 bg-secondary/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Asistent juridic IA</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold mb-4 font-playfair">Asistent juridic IA</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-source-sans">
                 Obțineți îndrumare juridică instantanee cu asistentul nostru juridic avansat bazat pe IA. 
                 Disponibil 24/7 pentru clienții premium.
               </p>
@@ -37,8 +37,8 @@ const Index = () => {
                   <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <Search className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl">Consultație juridică premium cu IA</CardTitle>
-                  <CardDescription className="text-lg">
+                  <CardTitle className="text-2xl font-playfair">Consultație juridică premium cu IA</CardTitle>
+                  <CardDescription className="text-lg font-source-sans">
                     Instrument avansat de cercetare și consultanță juridică bazat pe IA
                   </CardDescription>
                 </CardHeader>
@@ -46,22 +46,22 @@ const Index = () => {
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="text-center p-4">
                       <FileText className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold">Revizuire documente</h3>
-                      <p className="text-sm text-muted-foreground">Analiză contracte și documente bazată pe IA</p>
+                      <h3 className="font-semibold font-source-sans">Revizuire documente</h3>
+                      <p className="text-sm text-muted-foreground font-source-sans">Analiză contracte și documente bazată pe IA</p>
                     </div>
                     <div className="text-center p-4">
                       <BookOpen className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold">Cercetare juridică</h3>
-                      <p className="text-sm text-muted-foreground">Acces instant la jurisprudență și statute</p>
+                      <h3 className="font-semibold font-source-sans">Cercetare juridică</h3>
+                      <p className="text-sm text-muted-foreground font-source-sans">Acces instant la jurisprudență și statute</p>
                     </div>
                     <div className="text-center p-4">
                       <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold">Consultație expert</h3>
-                      <p className="text-sm text-muted-foreground">Îndrumare IA 24/7 pentru probleme juridice</p>
+                      <h3 className="font-semibold font-source-sans">Consultație expert</h3>
+                      <p className="text-sm text-muted-foreground font-source-sans">Îndrumare IA 24/7 pentru probleme juridice</p>
                     </div>
                   </div>
                   <div className="text-center space-y-4">
-                    <Badge variant="secondary" className="text-lg px-4 py-2">
+                    <Badge variant="secondary" className="text-lg px-4 py-2 font-source-sans">
                       Funcție premium - 99€/lună
                     </Badge>
                     <div className="space-x-4">
@@ -82,8 +82,8 @@ const Index = () => {
         {/* Call to Action */}
         <section className="py-16 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Gata să obțineți ajutor juridic?</h2>
-            <p className="text-xl mb-8 opacity-90">
+            <h2 className="text-3xl font-bold mb-4 font-playfair">Gata să obțineți ajutor juridic?</h2>
+            <p className="text-xl mb-8 opacity-90 font-source-sans">
               Programați o consultație astăzi și obțineți consiliere juridică de expert
             </p>
             <div className="space-x-4">

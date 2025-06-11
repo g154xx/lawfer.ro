@@ -15,10 +15,10 @@ const About = () => {
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-6">About LegalPro</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Founded on the principles of excellence, integrity, and innovation, LegalPro combines traditional legal expertise 
-              with cutting-edge AI technology to deliver unparalleled legal services.
+            <h1 className="text-4xl font-bold mb-6 font-playfair">Despre Lawfer</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-source-sans">
+              Înființat pe principiile excelenței, integrității și inovației, Lawfer combină expertiza juridică tradițională 
+              cu tehnologia IA de ultimă generație pentru a oferi servicii juridice de neegalat.
             </p>
           </div>
 
@@ -27,49 +27,49 @@ const About = () => {
             <div className="md:flex">
               <div className="md:w-1/3 bg-gradient-to-br from-primary/10 to-primary/5 p-8 flex items-center justify-center">
                 <div className="w-64 h-64 bg-primary/20 rounded-full flex items-center justify-center">
-                  <div className="text-8xl font-bold text-primary">JS</div>
+                  <div className="text-8xl font-bold text-primary font-playfair">YL</div>
                 </div>
               </div>
               <div className="md:w-2/3">
                 <CardHeader>
-                  <CardTitle className="text-3xl">John Smith, Esq.</CardTitle>
-                  <CardDescription className="text-xl">Founding Partner & Senior Attorney</CardDescription>
+                  <CardTitle className="text-3xl font-playfair">Yarina Laufer, Avocat</CardTitle>
+                  <CardDescription className="text-xl font-source-sans">Avocat Senior & Fondator</CardDescription>
                   <div className="flex flex-wrap gap-2 mt-4">
-                    <Badge>Harvard Law Graduate</Badge>
-                    <Badge>15+ Years Experience</Badge>
-                    <Badge>500+ Cases Won</Badge>
-                    <Badge>AI Legal Pioneer</Badge>
+                    <Badge>Absolventă Facultatea de Drept</Badge>
+                    <Badge>15+ Ani Experiență</Badge>
+                    <Badge>500+ Cazuri Câștigate</Badge>
+                    <Badge>Pionier IA Juridic</Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h3 className="font-semibold mb-2">Professional Background</h3>
-                    <p className="text-muted-foreground">
-                      John Smith founded LegalPro with a vision to revolutionize legal services through technology and expertise. 
-                      With over 15 years of experience representing clients from startups to Fortune 500 companies, John has built 
-                      a reputation for delivering exceptional results in complex legal matters.
+                    <h3 className="font-semibold mb-2 font-source-sans">Fundal profesional</h3>
+                    <p className="text-muted-foreground font-source-sans">
+                      Yarina Laufer a fondat Lawfer cu o viziune de a revoluționa serviciile juridice prin tehnologie și expertiză. 
+                      Cu peste 15 ani de experiență în reprezentarea clienților de la startup-uri la companii din Fortune 500, Yarina și-a 
+                      construit o reputație pentru livrarea de rezultate excepționale în probleme juridice complexe.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold mb-2">Education & Credentials</h3>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li>• J.D., Harvard Law School (Magna Cum Laude, 2009)</li>
-                      <li>• B.A., Yale University, Political Science (Summa Cum Laude, 2006)</li>
-                      <li>• Licensed to practice in New York, California, and Federal Courts</li>
-                      <li>• Member, American Bar Association</li>
-                      <li>• Certified in AI and Legal Technology</li>
+                    <h3 className="font-semibold mb-2 font-source-sans">Educație și acreditări</h3>
+                    <ul className="space-y-2 text-muted-foreground font-source-sans">
+                      <li>• Licența în Drept, Universitatea București (Magna Cum Laude, 2009)</li>
+                      <li>• Masterul în Științe Politice, Universitatea București (Summa Cum Laude, 2006)</li>
+                      <li>• Licențiată să practice în România și instanțele federale</li>
+                      <li>• Membru, Uniunea Națională a Barourilor din România</li>
+                      <li>• Certificată în IA și Tehnologie Juridică</li>
                     </ul>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold mb-2">Notable Achievements</h3>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li>• Successfully closed $500M+ in M&A transactions</li>
-                      <li>• Winner of 95% of litigation cases</li>
-                      <li>• Featured in Legal 500 as "Rising Star"</li>
-                      <li>• Pioneer in AI-assisted legal research</li>
-                      <li>• Published author on corporate law topics</li>
+                    <h3 className="font-semibold mb-2 font-source-sans">Realizări notabile</h3>
+                    <ul className="space-y-2 text-muted-foreground font-source-sans">
+                      <li>• A finalizat cu succes tranzacții M&A de peste 500M EUR</li>
+                      <li>• Câștigătoare în 95% din cazurile de litigiu</li>
+                      <li>• Prezentată în Legal 500 ca "Stea în ascensiune"</li>
+                      <li>• Pionier în cercetarea juridică asistată de IA</li>
+                      <li>• Autor publicat pe subiecte de drept societar</li>
                     </ul>
                   </div>
                 </CardContent>
@@ -84,11 +84,11 @@ const About = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Gavel className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle>Excellence</CardTitle>
+                <CardTitle className="font-playfair">Excelență</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  We maintain the highest standards of legal practice, delivering exceptional results for every client.
+                <p className="text-muted-foreground font-source-sans">
+                  Menținem cele mai înalte standarde de practică juridică, oferind rezultate excepționale pentru fiecare client.
                 </p>
               </CardContent>
             </Card>
@@ -98,11 +98,11 @@ const About = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle>Client-Focused</CardTitle>
+                <CardTitle className="font-playfair">Orientat către client</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Your success is our priority. We provide personalized attention and tailored legal solutions.
+                <p className="text-muted-foreground font-source-sans">
+                  Succesul dvs. este prioritatea noastră. Oferim atenție personalizată și soluții juridice personalizate.
                 </p>
               </CardContent>
             </Card>
@@ -112,11 +112,11 @@ const About = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle>Innovation</CardTitle>
+                <CardTitle className="font-playfair">Inovație</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Leveraging AI and technology to provide faster, more efficient legal services.
+                <p className="text-muted-foreground font-source-sans">
+                  Utilizăm IA și tehnologia pentru a oferi servicii juridice mai rapide și mai eficiente.
                 </p>
               </CardContent>
             </Card>
@@ -124,16 +124,16 @@ const About = () => {
 
           {/* Call to Action */}
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Experience the difference that expertise and innovation can make for your legal needs.
+            <h2 className="text-3xl font-bold mb-4 font-playfair">Gata să lucrăm împreună?</h2>
+            <p className="text-lg text-muted-foreground mb-8 font-source-sans">
+              Experimentați diferența pe care expertiza și inovația o pot face pentru nevoile dvs. juridice.
             </p>
             <div className="space-x-4">
               <Button size="lg" asChild>
-                <Link to="/contact">Schedule Consultation</Link>
+                <Link to="/contact">Programează consultație</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/ai-lawyer">Try AI Assistant</Link>
+                <Link to="/ai-lawyer">Încearcă asistentul IA</Link>
               </Button>
             </div>
           </div>
