@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -16,22 +18,123 @@ const Contact = () => {
     legalMatter: "",
     message: ""
   });
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+  const { user } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const sanitizeInput = (input: string) => {
+    return input.trim().replace(/[<>]/g, '');
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Consultation Request Sent",
-      description: "We'll contact you within 24 hours to schedule your consultation.",
-    });
-    setFormData({ name: "", email: "", phone: "", legalMatter: "", message: "" });
+    setLoading(true);
+
+    try {
+      // Client-side validation
+      if (!formData.name.trim() || formData.name.trim().length < 2) {
+        toast({
+          title: "Eroare",
+          description: "Numele trebuie să aibă cel puțin 2 caractere",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!validateEmail(formData.email)) {
+        toast({
+          title: "Eroare",
+          description: "Adresa de email nu este validă",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!formData.legalMatter) {
+        toast({
+          title: "Eroare",
+          description: "Vă rugăm să selectați tipul de problemă juridică",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!formData.message.trim() || formData.message.trim().length < 10) {
+        toast({
+          title: "Eroare",
+          description: "Mesajul trebuie să aibă cel puțin 10 caractere",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Sanitize inputs
+      const sanitizedData = {
+        name: sanitizeInput(formData.name),
+        email: sanitizeInput(formData.email),
+        phone: formData.phone ? sanitizeInput(formData.phone) : null,
+        legal_matter: formData.legalMatter,
+        message: sanitizeInput(formData.message),
+        user_id: user?.id || null,
+      };
+
+      console.log('Submitting contact form:', sanitizedData);
+
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([sanitizedData]);
+
+      if (error) {
+        console.error('Supabase error:', error);
+        toast({
+          title: "Eroare",
+          description: "A apărut o eroare la trimiterea mesajului. Încercați din nou.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Mesaj trimis cu succes",
+          description: "Vă vom contacta în termen de 24 de ore pentru a programa consultația.",
+        });
+        
+        setFormData({ 
+          name: "", 
+          email: "", 
+          phone: "", 
+          legalMatter: "", 
+          message: "" 
+        });
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast({
+        title: "Eroare",
+        description: "A apărut o eroare neașteptată. Încercați din nou.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    
+    // Basic input length limits for security
+    let sanitizedValue = value;
+    if (name === 'name' && value.length > 100) sanitizedValue = value.slice(0, 100);
+    if (name === 'email' && value.length > 255) sanitizedValue = value.slice(0, 255);
+    if (name === 'phone' && value.length > 20) sanitizedValue = value.slice(0, 20);
+    if (name === 'message' && value.length > 2000) sanitizedValue = value.slice(0, 2000);
+    
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: sanitizedValue
     }));
   };
 
@@ -56,6 +159,11 @@ const Contact = () => {
                 <CardTitle className="text-2xl">Request Free Consultation</CardTitle>
                 <CardDescription>
                   Fill out the form below and we'll contact you within 24 hours
+                  {user && (
+                    <span className="block mt-2 text-sm font-medium text-primary">
+                      Conectat ca: {user.email}
+                    </span>
+                  )}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -70,6 +178,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         placeholder="John Smith"
+                        maxLength={100}
                       />
                     </div>
                     <div>
@@ -82,6 +191,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         placeholder="john@example.com"
+                        maxLength={255}
                       />
                     </div>
                   </div>
@@ -95,6 +205,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="(555) 123-4567"
+                      maxLength={20}
                     />
                   </div>
 
@@ -129,11 +240,15 @@ const Contact = () => {
                       rows={4}
                       placeholder="Please describe your legal matter and any specific questions you have..."
                       className="w-full px-3 py-2 border border-input bg-background rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      maxLength={2000}
                     />
+                    <div className="text-xs text-muted-foreground mt-1">
+                      {formData.message.length}/2000 caractere
+                    </div>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    Request Free Consultation
+                  <Button type="submit" size="lg" className="w-full" disabled={loading}>
+                    {loading ? "Se trimite..." : "Request Free Consultation"}
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">

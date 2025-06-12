@@ -4,25 +4,107 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
 
 const Login = () => {
+  const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
+    fullName: "",
+    confirmPassword: ""
   });
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+  const { signIn, signUp, user } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically authenticate with your backend
-    toast({
-      title: "Conectare reușită",
-      description: "Bun venit înapoi! Acum aveți acces la funcțiile premium.",
-    });
+    setLoading(true);
+
+    try {
+      if (isSignUp) {
+        if (formData.password !== formData.confirmPassword) {
+          toast({
+            title: "Eroare",
+            description: "Parolele nu se potrivesc",
+            variant: "destructive",
+          });
+          return;
+        }
+
+        if (formData.password.length < 6) {
+          toast({
+            title: "Eroare",
+            description: "Parola trebuie să aibă cel puțin 6 caractere",
+            variant: "destructive",
+          });
+          return;
+        }
+
+        const { error } = await signUp(formData.email, formData.password, formData.fullName);
+        
+        if (error) {
+          if (error.message.includes('already registered')) {
+            toast({
+              title: "Eroare",
+              description: "Acest email este deja înregistrat. Încercați să vă conectați.",
+              variant: "destructive",
+            });
+          } else {
+            toast({
+              title: "Eroare la înregistrare",
+              description: error.message,
+              variant: "destructive",
+            });
+          }
+        } else {
+          toast({
+            title: "Înregistrare reușită",
+            description: "Verificați emailul pentru a confirma contul.",
+          });
+        }
+      } else {
+        const { error } = await signIn(formData.email, formData.password);
+        
+        if (error) {
+          if (error.message.includes('Invalid login credentials')) {
+            toast({
+              title: "Eroare",
+              description: "Email sau parolă incorectă",
+              variant: "destructive",
+            });
+          } else {
+            toast({
+              title: "Eroare la conectare",
+              description: error.message,
+              variant: "destructive",
+            });
+          }
+        } else {
+          toast({
+            title: "Conectare reușită",
+            description: "Bun venit înapoi!",
+          });
+          navigate('/');
+        }
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,13 +122,33 @@ const Login = () => {
           <div className="max-w-md mx-auto">
             <Card>
               <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Bun venit înapoi</CardTitle>
+                <CardTitle className="text-2xl">
+                  {isSignUp ? "Creați un cont nou" : "Bun venit înapoi"}
+                </CardTitle>
                 <CardDescription>
-                  Conectați-vă pentru a accesa instrumentele juridice premium și istoricul consultațiilor
+                  {isSignUp 
+                    ? "Înregistrați-vă pentru a accesa instrumentele juridice premium"
+                    : "Conectați-vă pentru a accesa instrumentele juridice premium și istoricul consultațiilor"
+                  }
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {isSignUp && (
+                    <div>
+                      <Label htmlFor="fullName">Nume complet</Label>
+                      <Input
+                        id="fullName"
+                        name="fullName"
+                        type="text"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        required
+                        placeholder="Numele dvs. complet"
+                      />
+                    </div>
+                  )}
+
                   <div>
                     <Label htmlFor="email">Adresa de email</Label>
                     <Input
@@ -70,23 +172,57 @@ const Login = () => {
                       onChange={handleChange}
                       required
                       placeholder="••••••••"
+                      minLength={6}
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    Conectare
+                  {isSignUp && (
+                    <div>
+                      <Label htmlFor="confirmPassword">Confirmați parola</Label>
+                      <Input
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        type="password"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        required
+                        placeholder="••••••••"
+                        minLength={6}
+                      />
+                    </div>
+                  )}
+
+                  <Button type="submit" size="lg" className="w-full" disabled={loading}>
+                    {loading 
+                      ? (isSignUp ? "Se înregistrează..." : "Se conectează...") 
+                      : (isSignUp ? "Înregistrare" : "Conectare")
+                    }
                   </Button>
                 </form>
 
                 <div className="mt-6 text-center space-y-4">
-                  <Link to="/forgot-password" className="text-sm text-primary hover:underline">
-                    Ați uitat parola?
-                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setIsSignUp(!isSignUp)}
+                    className="text-sm text-primary hover:underline"
+                  >
+                    {isSignUp 
+                      ? "Aveți deja un cont? Conectați-vă" 
+                      : "Nu aveți un cont? Înregistrați-vă"
+                    }
+                  </button>
+                  
+                  {!isSignUp && (
+                    <div className="text-sm text-muted-foreground">
+                      <Link to="/forgot-password" className="text-primary hover:underline">
+                        Ați uitat parola?
+                      </Link>
+                    </div>
+                  )}
                   
                   <div className="text-sm text-muted-foreground">
-                    Nu aveți un cont?{" "}
                     <Link to="/pricing" className="text-primary hover:underline">
-                      Abonați-vă acum
+                      Vezi planurile premium
                     </Link>
                   </div>
                 </div>
