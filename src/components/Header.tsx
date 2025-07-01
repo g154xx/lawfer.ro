@@ -51,7 +51,7 @@ const Header = () => {
             {/* Logo Profesional - stil Royal Cursive */}
             <Link to="/" className="flex items-center space-x-4">
               <div className="flex flex-col">
-                <div className="text-4xl font-bold text-primary royal-logo tracking-wider">
+                <div className="text-4xl font-bold text-primary font-dancing-script tracking-wider">
                   LAWFER
                 </div>
                 <div className="text-xs text-muted-foreground font-source-sans tracking-wide -mt-1 pl-1">
@@ -138,7 +138,7 @@ const Header = () => {
             </Sheet>
           </div>
         </div>
-      </Header>
+      </header>
     </>
   );
 };
