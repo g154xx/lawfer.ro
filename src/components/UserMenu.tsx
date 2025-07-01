@@ -1,5 +1,6 @@
 
 import { useAuth } from '@/hooks/useAuth';
+import { useRole } from '@/hooks/useRole';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -8,12 +9,13 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
-import { User, LogOut, Settings } from 'lucide-react';
+import { User, LogOut, Settings, Shield } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
 
 const UserMenu = () => {
   const { user, signOut } = useAuth();
+  const { role, isAdmin, loading } = useRole();
   const { toast } = useToast();
 
   const handleSignOut = async () => {
@@ -51,10 +53,23 @@ const UserMenu = () => {
         <div className="px-2 py-1.5 text-sm">
           <div className="font-medium truncate">{user.email}</div>
           <div className="text-xs text-muted-foreground">
-            Membru premium
+            {loading ? 'Se încarcă...' : (
+              isAdmin ? 'Administrator' : 'Membru premium'
+            )}
           </div>
         </div>
         <DropdownMenuSeparator />
+        {isAdmin && (
+          <>
+            <DropdownMenuItem asChild>
+              <Link to="/admin" className="flex items-center">
+                <Shield className="mr-2 h-4 w-4" />
+                Panou Admin
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+          </>
+        )}
         <DropdownMenuItem asChild>
           <Link to="/profile" className="flex items-center">
             <Settings className="mr-2 h-4 w-4" />

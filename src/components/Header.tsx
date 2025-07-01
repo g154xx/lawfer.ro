@@ -4,9 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Phone, Mail, MapPin, User, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRole } from "@/hooks/useRole";
+import UserMenu from "./UserMenu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAdmin } = useRole();
 
   const navigationItems = [
     { name: "Acasă", href: "/" },
@@ -16,6 +19,11 @@ const Header = () => {
     { name: "Resurse Utile", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ];
+
+  // Add admin navigation for admins
+  if (isAdmin) {
+    navigationItems.push({ name: "Admin", href: "/admin" });
+  }
 
   return (
     <>
@@ -76,12 +84,7 @@ const Header = () => {
 
             {/* Desktop CTA - stil Hogan Lovells */}
             <div className="hidden lg:flex items-center space-x-4">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary font-source-sans" asChild>
-                <Link to="/login">
-                  <User className="h-4 w-4 mr-2" />
-                  Cont Client
-                </Link>
-              </Button>
+              <UserMenu />
               <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-source-sans" asChild>
                 <Link to="/contact">Consultație Gratuită</Link>
               </Button>
@@ -121,12 +124,9 @@ const Header = () => {
                   ))}
                   
                   <div className="pt-4 space-y-3">
-                    <Button variant="outline" className="w-full font-source-sans border-border text-foreground hover:bg-secondary" asChild>
-                      <Link to="/login" onClick={() => setIsOpen(false)}>
-                        <User className="h-4 w-4 mr-2" />
-                        Cont Client
-                      </Link>
-                    </Button>
+                    <div className="flex justify-center">
+                      <UserMenu />
+                    </div>
                     <Button className="w-full bg-primary hover:bg-primary/90 font-source-sans" asChild>
                       <Link to="/contact" onClick={() => setIsOpen(false)}>
                         Consultație Gratuită

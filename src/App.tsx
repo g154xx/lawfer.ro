@@ -12,6 +12,7 @@ import AILawyer from "./pages/AILawyer";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
+import Admin from "./pages/Admin";
 import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/pricing" element={<Pricing />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
