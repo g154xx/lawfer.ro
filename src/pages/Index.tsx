@@ -22,23 +22,23 @@ const Index = () => {
         <Testimonials />
         
         {/* AI Lawyer Tool Section */}
-        <section className="py-16 bg-secondary/50">
+        <section className="py-16 bg-secondary/30 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 font-playfair">Asistent juridic IA</h2>
+              <h2 className="text-3xl font-bold mb-4 font-playfair text-foreground">Asistent juridic IA</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-source-sans">
                 Obțineți îndrumare juridică instantanee cu asistentul nostru juridic avansat bazat pe IA. 
                 Disponibil 24/7 pentru clienții premium.
               </p>
             </div>
             <div className="max-w-4xl mx-auto">
-              <Card className="border-2 border-primary/20">
+              <Card className="border-2 border-primary/20 bg-card/80 backdrop-blur-sm">
                 <CardHeader className="text-center">
                   <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <Search className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl font-playfair">Consultație juridică premium cu IA</CardTitle>
-                  <CardDescription className="text-lg font-source-sans">
+                  <CardTitle className="text-2xl font-playfair text-foreground">Consultație juridică premium cu IA</CardTitle>
+                  <CardDescription className="text-lg font-source-sans text-muted-foreground">
                     Instrument avansat de cercetare și consultanță juridică bazat pe IA
                   </CardDescription>
                 </CardHeader>
@@ -46,29 +46,29 @@ const Index = () => {
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="text-center p-4">
                       <FileText className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold font-source-sans">Revizuire documente</h3>
+                      <h3 className="font-semibold font-source-sans text-foreground">Revizuire documente</h3>
                       <p className="text-sm text-muted-foreground font-source-sans">Analiză contracte și documente bazată pe IA</p>
                     </div>
                     <div className="text-center p-4">
                       <BookOpen className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold font-source-sans">Cercetare juridică</h3>
+                      <h3 className="font-semibold font-source-sans text-foreground">Cercetare juridică</h3>
                       <p className="text-sm text-muted-foreground font-source-sans">Acces instant la jurisprudență și statute</p>
                     </div>
                     <div className="text-center p-4">
                       <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-semibold font-source-sans">Consultație expert</h3>
+                      <h3 className="font-semibold font-source-sans text-foreground">Consultație expert</h3>
                       <p className="text-sm text-muted-foreground font-source-sans">Îndrumare IA 24/7 pentru probleme juridice</p>
                     </div>
                   </div>
                   <div className="text-center space-y-4">
-                    <Badge variant="secondary" className="text-lg px-4 py-2 font-source-sans">
+                    <Badge variant="secondary" className="text-lg px-4 py-2 font-source-sans bg-secondary text-secondary-foreground">
                       Funcție premium - 99€/lună
                     </Badge>
                     <div className="space-x-4">
                       <Button size="lg" asChild>
                         <Link to="/ai-lawyer">Încearcă asistentul IA</Link>
                       </Button>
-                      <Button variant="outline" size="lg" asChild>
+                      <Button variant="outline" size="lg" className="border-border text-foreground hover:bg-secondary" asChild>
                         <Link to="/pricing">Vezi prețurile</Link>
                       </Button>
                     </div>

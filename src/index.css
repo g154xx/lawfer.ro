@@ -3,86 +3,89 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import royal cursive font for logo */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 40% 8%;
+    --background: 210 30% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 40% 8%;
+    --card: 210 30% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 8%;
+    --popover: 210 30% 12%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 355 85% 47%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 210 40% 8%;
+    --secondary: 210 30% 16%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 210 30% 16%;
+    --muted-foreground: 215 16% 70%;
 
-    --accent: 210 40% 96%;
-    --accent-foreground: 210 40% 8%;
+    --accent: 210 30% 16%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
+    --border: 214 32% 20%;
+    --input: 214 32% 20%;
     --ring: 355 85% 47%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 210 40% 8%;
+    --sidebar-background: 210 30% 8%;
+    --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 355 85% 47%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 210 40% 96%;
-    --sidebar-accent-foreground: 210 40% 8%;
-    --sidebar-border: 214 32% 91%;
+    --sidebar-accent: 210 30% 16%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 214 32% 20%;
     --sidebar-ring: 355 85% 47%;
   }
 
   .dark {
-    --background: 0 0% 100%;
-    --foreground: 210 40% 8%;
+    --background: 210 30% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 40% 8%;
+    --card: 210 30% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 8%;
+    --popover: 210 30% 12%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 355 85% 47%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 210 40% 8%;
+    --secondary: 210 30% 16%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 210 30% 16%;
+    --muted-foreground: 215 16% 70%;
 
-    --accent: 210 40% 96%;
-    --accent-foreground: 210 40% 8%;
+    --accent: 210 30% 16%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
+    --border: 214 32% 20%;
+    --input: 214 32% 20%;
     --ring: 355 85% 47%;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 210 40% 8%;
+    --sidebar-background: 210 30% 8%;
+    --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 355 85% 47%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 210 40% 96%;
-    --sidebar-accent-foreground: 210 40% 8%;
-    --sidebar-border: 214 32% 91%;
+    --sidebar-accent: 210 30% 16%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 214 32% 20%;
     --sidebar-ring: 355 85% 47%;
   }
 }
@@ -93,23 +96,25 @@
   }
 
   body {
-    @apply bg-background text-foreground font-source-sans;
+    @apply text-foreground font-source-sans;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #134e4a 75%, #065f46 100%);
+    min-height: 100vh;
   }
 }
 
-/* Hogan Lovells inspired hero background with animated images */
+/* Dark gradient background similar to Lovable's website */
 @layer components {
   .hero-background {
     background: linear-gradient(135deg, 
-      rgba(255,255,255,0.97) 0%, 
-      rgba(248,249,250,0.95) 25%,
-      rgba(255,255,255,0.96) 50%,
-      rgba(248,249,250,0.94) 75%,
-      rgba(255,255,255,0.97) 100%),
+      rgba(15, 23, 42, 0.97) 0%, 
+      rgba(30, 41, 59, 0.95) 25%,
+      rgba(19, 78, 74, 0.96) 50%,
+      rgba(6, 95, 70, 0.94) 75%,
+      rgba(4, 120, 87, 0.97) 100%),
       radial-gradient(circle at 20% 30%, rgba(220,53,69,0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(220,53,69,0.06) 0%, transparent 50%),
-      radial-gradient(circle at 60% 20%, rgba(220,53,69,0.04) 0%, transparent 40%),
-      radial-gradient(circle at 30% 80%, rgba(220,53,69,0.05) 0%, transparent 45%);
+      radial-gradient(circle at 80% 70%, rgba(6, 95, 70, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 60% 20%, rgba(15, 23, 42, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 30% 80%, rgba(19, 78, 74, 0.05) 0%, transparent 45%);
     background-size: 100% 100%, 800px 800px, 600px 600px, 900px 900px, 700px 700px;
     background-position: 0% 0%, 0% 0%, 100% 0%, 0% 100%, 100% 100%;
     animation: hero-float 25s ease-in-out infinite;
@@ -125,7 +130,7 @@
     width: 200%;
     height: 200%;
     background: 
-      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1.5" fill="%23dc3545" opacity="0.1"/></pattern></defs><rect width="1200" height="800" fill="url(%23dots)"/></svg>') repeat;
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="1200" height="800" fill="url(%23dots)"/></svg>') repeat;
     animation: pattern-drift 40s linear infinite;
     pointer-events: none;
   }
@@ -138,9 +143,9 @@
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle at 15% 25%, rgba(220,53,69,0.1) 0%, transparent 25%),
-      radial-gradient(circle at 85% 75%, rgba(220,53,69,0.08) 0%, transparent 30%),
-      radial-gradient(circle at 45% 60%, rgba(220,53,69,0.05) 0%, transparent 20%);
+      radial-gradient(circle at 15% 25%, rgba(6, 95, 70, 0.1) 0%, transparent 25%),
+      radial-gradient(circle at 85% 75%, rgba(15, 23, 42, 0.08) 0%, transparent 30%),
+      radial-gradient(circle at 45% 60%, rgba(19, 78, 74, 0.05) 0%, transparent 20%);
     animation: overlay-float 30s ease-in-out infinite reverse;
     pointer-events: none;
   }
@@ -203,6 +208,13 @@
     right: 60%;
     animation-delay: 12s;
     animation-duration: 19s;
+  }
+
+  .royal-logo {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
   }
 }
 

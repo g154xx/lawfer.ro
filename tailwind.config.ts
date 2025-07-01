@@ -25,6 +25,8 @@ export default {
 				'source-serif': ['Source Serif Pro', 'serif'],
 				'serif': ['Source Serif Pro', 'serif'],
 				'playfair': ['Playfair Display', 'serif'],
+				'great-vibes': ['Great Vibes', 'cursive'],
+				'dancing-script': ['Dancing Script', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

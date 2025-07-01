@@ -20,41 +20,41 @@ const Header = () => {
   return (
     <>
       {/* Top Bar cu informații de contact - stil Hogan Lovells */}
-      <div className="bg-muted text-muted-foreground py-2 text-sm border-b">
+      <div className="bg-card/50 backdrop-blur-sm text-foreground py-2 text-sm border-b border-border/50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
-                <span>+40 721 123 456</span>
+                <Phone className="h-4 w-4 text-primary" />
+                <span className="text-foreground">+40 721 123 456</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span>office@lawfer.ro</span>
+                <Mail className="h-4 w-4 text-primary" />
+                <span className="text-foreground">office@lawfer.ro</span>
               </div>
               <div className="hidden md:flex items-center space-x-2">
-                <MapPin className="h-4 w-4" />
-                <span>București, Sectorul 1</span>
+                <MapPin className="h-4 w-4 text-primary" />
+                <span className="text-foreground">București, Sectorul 1</span>
               </div>
             </div>
             <div className="hidden md:block">
-              <span>Program: Luni - Vineri 09:00 - 18:00</span>
+              <span className="text-muted-foreground">Program: Luni - Vineri 09:00 - 18:00</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Header - stil Hogan Lovells */}
-      <header className="sticky top-0 z-50 w-full bg-background border-b shadow-sm">
+      <header className="sticky top-0 z-50 w-full bg-card/80 backdrop-blur-md border-b border-border/50 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            {/* Logo Profesional - stil Hogan Lovells */}
+            {/* Logo Profesional - stil Royal Cursive */}
             <Link to="/" className="flex items-center space-x-4">
               <div className="flex flex-col">
-                <div className="text-3xl font-bold text-primary font-playfair tracking-tight">
+                <div className="text-4xl font-bold text-primary royal-logo tracking-wider">
                   LAWFER
                 </div>
-                <div className="text-xs text-muted-foreground font-source-sans tracking-wide -mt-1">
+                <div className="text-xs text-muted-foreground font-source-sans tracking-wide -mt-1 pl-1">
                   by Yarina Laufer
                 </div>
               </div>
@@ -91,19 +91,19 @@ const Header = () => {
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
                 <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-6 w-6 text-foreground" />
                   <span className="sr-only">Deschide meniu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
+              <SheetContent side="right" className="w-80 bg-card border-border">
                 <div className="flex flex-col space-y-6 mt-8">
                   {/* Informații contact în mobile menu */}
-                  <div className="border-b pb-4 space-y-2">
-                    <div className="flex items-center space-x-2 text-sm">
+                  <div className="border-b border-border pb-4 space-y-2">
+                    <div className="flex items-center space-x-2 text-sm text-foreground">
                       <Phone className="h-4 w-4 text-primary" />
                       <span>+40 721 123 456</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-sm">
+                    <div className="flex items-center space-x-2 text-sm text-foreground">
                       <Mail className="h-4 w-4 text-primary" />
                       <span>office@lawfer.ro</span>
                     </div>
@@ -113,7 +113,7 @@ const Header = () => {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="text-lg font-medium transition-colors hover:text-primary border-b border-border pb-2 font-source-sans"
+                      className="text-lg font-medium transition-colors hover:text-primary border-b border-border pb-2 font-source-sans text-foreground"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
@@ -121,7 +121,7 @@ const Header = () => {
                   ))}
                   
                   <div className="pt-4 space-y-3">
-                    <Button variant="outline" className="w-full font-source-sans" asChild>
+                    <Button variant="outline" className="w-full font-source-sans border-border text-foreground hover:bg-secondary" asChild>
                       <Link to="/login" onClick={() => setIsOpen(false)}>
                         <User className="h-4 w-4 mr-2" />
                         Cont Client
@@ -138,7 +138,7 @@ const Header = () => {
             </Sheet>
           </div>
         </div>
-      </header>
+      </Header>
     </>
   );
 };
