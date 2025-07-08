@@ -1,4 +1,6 @@
 
+import { validateEmail, validateName, validateMessage, validatePhone } from './security';
+
 interface ContactFormData {
   name: string;
   email: string;
@@ -8,21 +10,24 @@ interface ContactFormData {
 }
 
 export const validateContactForm = (formData: ContactFormData): string | null => {
-  if (!formData.name.trim() || formData.name.trim().length < 2) {
-    return "Numele trebuie să aibă cel puțin 2 caractere";
+  if (!validateName(formData.name)) {
+    return "Numele trebuie să aibă cel puțin 2 caractere și să nu conțină caractere periculoase";
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(formData.email)) {
+  if (!validateEmail(formData.email)) {
     return "Adresa de email nu este validă";
+  }
+
+  if (!validatePhone(formData.phone)) {
+    return "Numărul de telefon conține caractere nevalide";
   }
 
   if (!formData.legalMatter) {
     return "Vă rugăm să selectați tipul de problemă juridică";
   }
 
-  if (!formData.message.trim() || formData.message.trim().length < 10) {
-    return "Mesajul trebuie să aibă cel puțin 10 caractere";
+  if (!validateMessage(formData.message)) {
+    return "Mesajul trebuie să aibă cel puțin 10 caractere și să nu conțină caractere periculoase";
   }
 
   return null;

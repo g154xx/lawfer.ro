@@ -2,15 +2,9 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from './useAuth';
 import { supabase } from '@/integrations/supabase/client';
+import { secureLog } from '@/utils/security';
 
 type AppRole = 'admin' | 'user';
-
-interface UserRole {
-  id: string;
-  user_id: string;
-  role: AppRole;
-  created_at: string;
-}
 
 export const useRole = () => {
   const { user } = useAuth();
@@ -33,13 +27,13 @@ export const useRole = () => {
           .single();
 
         if (error) {
-          console.error('Error fetching user role:', error);
+          secureLog('Error fetching user role:', error);
           setRole('user'); // Default to user role
         } else {
           setRole(data.role as AppRole);
         }
       } catch (error) {
-        console.error('Error fetching user role:', error);
+        secureLog('Error fetching user role:', error);
         setRole('user'); // Default to user role
       } finally {
         setLoading(false);

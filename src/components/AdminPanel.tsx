@@ -4,9 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
-import { useRole } from '@/hooks/useRole';
 import { supabase } from '@/integrations/supabase/client';
 import { Eye, Trash2, MessageSquare, Mail, Phone, User, Calendar } from 'lucide-react';
+import { escapeHtml, sanitizeErrorMessage, secureLog } from '@/utils/security';
 
 interface ContactSubmission {
   id: string;
@@ -23,15 +23,11 @@ interface ContactSubmission {
 const AdminPanel = () => {
   const [submissions, setSubmissions] = useState<ContactSubmission[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedSubmission, setSelectedSubmission] = useState<ContactSubmission | null>(null);
-  const { isAdmin } = useRole();
   const { toast } = useToast();
 
   useEffect(() => {
-    if (isAdmin) {
-      fetchSubmissions();
-    }
-  }, [isAdmin]);
+    fetchSubmissions();
+  }, []);
 
   const fetchSubmissions = async () => {
     try {
@@ -41,7 +37,7 @@ const AdminPanel = () => {
         .order('created_at', { ascending: false });
 
       if (error) {
-        console.error('Error fetching submissions:', error);
+        secureLog('Error fetching submissions:', error);
         toast({
           title: "Eroare",
           description: "Nu s-au putut încărca submiterile de contact",
@@ -49,9 +45,15 @@ const AdminPanel = () => {
         });
       } else {
         setSubmissions(data || []);
+        secureLog('Submissions loaded successfully');
       }
     } catch (error) {
-      console.error('Error fetching submissions:', error);
+      secureLog('Unexpected error fetching submissions:', error);
+      toast({
+        title: "Eroare",
+        description: "A apărut o eroare neașteptată",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -65,10 +67,10 @@ const AdminPanel = () => {
         .eq('id', id);
 
       if (error) {
-        console.error('Error deleting submission:', error);
+        secureLog('Error deleting submission:', error);
         toast({
           title: "Eroare",
-          description: "Nu s-a putut șterge submiterea",
+          description: sanitizeErrorMessage("Nu s-a putut șterge submiterea"),
           variant: "destructive",
         });
       } else {
@@ -77,9 +79,15 @@ const AdminPanel = () => {
           title: "Succes",
           description: "Submiterea a fost ștearsă",
         });
+        secureLog('Submission deleted successfully');
       }
     } catch (error) {
-      console.error('Error deleting submission:', error);
+      secureLog('Unexpected error deleting submission:', error);
+      toast({
+        title: "Eroare",
+        description: "A apărut o eroare neașteptată",
+        variant: "destructive",
+      });
     }
   };
 
@@ -91,10 +99,10 @@ const AdminPanel = () => {
         .eq('id', id);
 
       if (error) {
-        console.error('Error updating status:', error);
+        secureLog('Error updating status:', error);
         toast({
           title: "Eroare",
-          description: "Nu s-a putut actualiza statusul",
+          description: sanitizeErrorMessage("Nu s-a putut actualiza statusul"),
           variant: "destructive",
         });
       } else {
@@ -105,9 +113,15 @@ const AdminPanel = () => {
           title: "Succes",
           description: "Statusul a fost actualizat",
         });
+        secureLog('Status updated successfully');
       }
     } catch (error) {
-      console.error('Error updating status:', error);
+      secureLog('Unexpected error updating status:', error);
+      toast({
+        title: "Eroare",
+        description: "A apărut o eroare neașteptată",
+        variant: "destructive",
+      });
     }
   };
 
@@ -132,21 +146,6 @@ const AdminPanel = () => {
     };
     return labels[matter] || matter;
   };
-
-  if (!isAdmin) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Card className="w-full max-w-md">
-          <CardContent className="p-8 text-center">
-            <h3 className="text-lg font-semibold mb-2">Acces restricționat</h3>
-            <p className="text-muted-foreground">
-              Nu aveți permisiunile necesare pentru a accesa această pagină.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
 
   if (loading) {
     return (
@@ -184,16 +183,16 @@ const AdminPanel = () => {
                   <div className="flex items-center space-x-3">
                     <User className="h-5 w-5 text-muted-foreground" />
                     <div>
-                      <CardTitle className="text-lg">{submission.name}</CardTitle>
+                      <CardTitle className="text-lg">{escapeHtml(submission.name)}</CardTitle>
                       <CardDescription className="flex items-center space-x-4">
                         <span className="flex items-center">
                           <Mail className="h-4 w-4 mr-1" />
-                          {submission.email}
+                          {escapeHtml(submission.email)}
                         </span>
                         {submission.phone && (
                           <span className="flex items-center">
                             <Phone className="h-4 w-4 mr-1" />
-                            {submission.phone}
+                            {escapeHtml(submission.phone)}
                           </span>
                         )}
                       </CardDescription>
@@ -216,7 +215,7 @@ const AdminPanel = () => {
                   <div>
                     <h4 className="font-semibold mb-2">Mesaj:</h4>
                     <p className="text-sm text-muted-foreground bg-secondary/30 p-3 rounded">
-                      {submission.message}
+                      {escapeHtml(submission.message)}
                     </p>
                   </div>
                   

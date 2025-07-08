@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { sanitizeInput, checkRateLimit, sanitizeErrorMessage, secureLog } from "@/utils/security";
 
 interface LoginFormProps {
   isSignUp: boolean;
@@ -28,6 +28,21 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
     setLoading(true);
 
     try {
+      // Rate limiting check
+      const userKey = formData.email || 'anonymous';
+      if (!checkRateLimit(`auth_${userKey}`, 5, 300000)) { // 5 attempts per 5 minutes
+        toast({
+          title: "Prea multe încercări",
+          description: "Vă rugăm să așteptați 5 minute înainte de a încerca din nou.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Input validation and sanitization
+      const sanitizedEmail = sanitizeInput(formData.email.trim().toLowerCase());
+      const sanitizedFullName = isSignUp ? sanitizeInput(formData.fullName.trim()) : "";
+
       if (isSignUp) {
         if (formData.password !== formData.confirmPassword) {
           toast({
@@ -47,9 +62,19 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
           return;
         }
 
-        const { error } = await signUp(formData.email, formData.password, formData.fullName);
+        if (sanitizedFullName.length < 2) {
+          toast({
+            title: "Eroare",
+            description: "Numele trebuie să aibă cel puțin 2 caractere",
+            variant: "destructive",
+          });
+          return;
+        }
+
+        const { error } = await signUp(sanitizedEmail, formData.password, sanitizedFullName);
         
         if (error) {
+          secureLog('Sign up error:', error);
           if (error.message.includes('already registered')) {
             toast({
               title: "Eroare",
@@ -59,7 +84,7 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
           } else {
             toast({
               title: "Eroare la înregistrare",
-              description: error.message,
+              description: sanitizeErrorMessage(error.message),
               variant: "destructive",
             });
           }
@@ -68,11 +93,13 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
             title: "Înregistrare reușită",
             description: "Verificați emailul pentru a confirma contul.",
           });
+          secureLog('User signed up successfully');
         }
       } else {
-        const { error } = await signIn(formData.email, formData.password);
+        const { error } = await signIn(sanitizedEmail, formData.password);
         
         if (error) {
+          secureLog('Sign in error:', error);
           if (error.message.includes('Invalid login credentials')) {
             toast({
               title: "Eroare",
@@ -82,7 +109,7 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
           } else {
             toast({
               title: "Eroare la conectare",
-              description: error.message,
+              description: sanitizeErrorMessage(error.message),
               variant: "destructive",
             });
           }
@@ -91,18 +118,34 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
             title: "Conectare reușită",
             description: "Bun venit înapoi!",
           });
+          secureLog('User signed in successfully');
           navigate('/');
         }
       }
+    } catch (error) {
+      secureLog('Unexpected auth error:', error);
+      toast({
+        title: "Eroare",
+        description: "A apărut o eroare neașteptată. Încercați din nou.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    
+    // Basic input sanitization (keep original for passwords)
+    let sanitizedValue = value;
+    if (name !== 'password' && name !== 'confirmPassword') {
+      sanitizedValue = sanitizeInput(value);
+    }
+    
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: sanitizedValue
     }));
   };
 
@@ -119,6 +162,7 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
             onChange={handleChange}
             required
             placeholder="Numele dvs. complet"
+            maxLength={100}
           />
         </div>
       )}
@@ -133,6 +177,7 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
           onChange={handleChange}
           required
           placeholder="email@exemplu.com"
+          maxLength={255}
         />
       </div>
 
@@ -147,6 +192,7 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
           required
           placeholder="••••••••"
           minLength={6}
+          maxLength={128}
         />
       </div>
 
@@ -162,6 +208,7 @@ const LoginForm = ({ isSignUp }: LoginFormProps) => {
             required
             placeholder="••••••••"
             minLength={6}
+            maxLength={128}
           />
         </div>
       )}

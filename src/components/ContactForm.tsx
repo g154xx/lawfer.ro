@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { validateContactForm } from "@/utils/contactValidation";
+import { sanitizeInput, checkRateLimit, sanitizeErrorMessage, secureLog } from "@/utils/security";
 
 interface ContactFormData {
   name: string;
@@ -34,6 +35,17 @@ const ContactForm = () => {
     setLoading(true);
 
     try {
+      // Rate limiting check
+      const userKey = user?.id || 'anonymous';
+      if (!checkRateLimit(`contact_${userKey}`, 3, 300000)) { // 3 attempts per 5 minutes
+        toast({
+          title: "Prea multe încercări",
+          description: "Vă rugăm să așteptați 5 minute înainte de a încerca din nou.",
+          variant: "destructive",
+        });
+        return;
+      }
+
       const validationError = validateContactForm(formData);
       if (validationError) {
         toast({
@@ -45,25 +57,25 @@ const ContactForm = () => {
       }
 
       const sanitizedData = {
-        name: formData.name.trim().replace(/[<>]/g, ''),
-        email: formData.email.trim().replace(/[<>]/g, ''),
-        phone: formData.phone ? formData.phone.trim().replace(/[<>]/g, '') : null,
+        name: sanitizeInput(formData.name).substring(0, 100),
+        email: sanitizeInput(formData.email).substring(0, 255),
+        phone: formData.phone ? sanitizeInput(formData.phone).substring(0, 20) : null,
         legal_matter: formData.legalMatter,
-        message: formData.message.trim().replace(/[<>]/g, ''),
+        message: sanitizeInput(formData.message).substring(0, 2000),
         user_id: user?.id || null,
       };
 
-      console.log('Submitting contact form:', sanitizedData);
+      secureLog('Submitting contact form');
 
       const { error } = await supabase
         .from('contact_submissions')
         .insert([sanitizedData]);
 
       if (error) {
-        console.error('Supabase error:', error);
+        secureLog('Supabase error:', error);
         toast({
           title: "Eroare",
-          description: "A apărut o eroare la trimiterea mesajului. Încercați din nou.",
+          description: sanitizeErrorMessage("A apărut o eroare la trimiterea mesajului. Încercați din nou."),
           variant: "destructive",
         });
       } else {
@@ -79,9 +91,10 @@ const ContactForm = () => {
           legalMatter: "", 
           message: "" 
         });
+        secureLog('Contact form submitted successfully');
       }
     } catch (error) {
-      console.error('Unexpected error:', error);
+      secureLog('Unexpected error:', error);
       toast({
         title: "Eroare",
         description: "A apărut o eroare neașteptată. Încercați din nou.",
@@ -95,11 +108,12 @@ const ContactForm = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     
-    let sanitizedValue = value;
-    if (name === 'name' && value.length > 100) sanitizedValue = value.slice(0, 100);
-    if (name === 'email' && value.length > 255) sanitizedValue = value.slice(0, 255);
-    if (name === 'phone' && value.length > 20) sanitizedValue = value.slice(0, 20);
-    if (name === 'message' && value.length > 2000) sanitizedValue = value.slice(0, 2000);
+    // Input length validation with security limits
+    let sanitizedValue = sanitizeInput(value);
+    if (name === 'name' && sanitizedValue.length > 100) sanitizedValue = sanitizedValue.slice(0, 100);
+    if (name === 'email' && sanitizedValue.length > 255) sanitizedValue = sanitizedValue.slice(0, 255);
+    if (name === 'phone' && sanitizedValue.length > 20) sanitizedValue = sanitizedValue.slice(0, 20);
+    if (name === 'message' && sanitizedValue.length > 2000) sanitizedValue = sanitizedValue.slice(0, 2000);
     
     setFormData(prev => ({
       ...prev,
