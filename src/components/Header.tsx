@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Phone, Mail, MapPin, User, Menu } from "lucide-react";
+import { Phone, Mail, MapPin, Menu, Scale } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRole } from "@/hooks/useRole";
 import UserMenu from "./UserMenu";
@@ -56,16 +56,10 @@ const Header = () => {
       <header className="sticky top-0 z-50 w-full bg-card/80 backdrop-blur-md border-b border-border/50 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            {/* Logo Profesional - stil Royal Cursive */}
-            <Link to="/" className="flex items-center space-x-4">
-              <div className="flex flex-col">
-                <div className="text-4xl font-bold text-primary font-dancing-script tracking-wider">
-                  LAWFER
-                </div>
-                <div className="text-xs text-muted-foreground font-source-sans tracking-wide -mt-1 pl-1">
-                  by Yarina Laufer
-                </div>
-              </div>
+            {/* Logo Royal Cursive - same as Footer */}
+            <Link to="/" className="flex items-center space-x-2">
+              <Scale className="h-8 w-8 text-primary" />
+              <span className="text-2xl font-bold text-primary royal-logo">Lawfer</span>
             </Link>
 
             {/* Desktop Navigation - stil clean Hogan Lovells */}
