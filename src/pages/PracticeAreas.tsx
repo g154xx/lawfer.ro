@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,58 +10,58 @@ const PracticeAreasPage = () => {
   const practiceAreas = [
     {
       icon: Gavel,
-      title: "Corporate Law",
-      description: "Comprehensive business legal services for companies of all sizes",
-      details: "We provide full-service corporate legal support including entity formation, governance, compliance, mergers and acquisitions, and contract negotiations. Our expertise helps businesses navigate complex legal landscapes while focusing on growth and success.",
+      title: "Drept Comercial",
+      description: "Servicii juridice complete pentru companii de toate dimensiunile",
+      details: "Oferim suport juridic complet pentru companii, inclusiv înființarea entităților, guvernanță, conformitate, fuziuni și achiziții, și negocierea contractelor. Expertiza noastră ajută companiile să navigheze în peisajul juridic complex în timp ce se concentrează pe creștere și succes.",
       services: [
-        "Business Formation & Structure",
-        "Corporate Governance",
-        "Mergers & Acquisitions",
-        "Contract Negotiation",
-        "Compliance & Regulatory",
-        "Securities Law"
+        "Înființarea și Structurarea Companiei",
+        "Guvernanță Corporativă",
+        "Fuziuni și Achiziții",
+        "Negocierea Contractelor",
+        "Conformitate și Reglementare",
+        "Dreptul Valorilor Mobiliare"
       ]
     },
     {
       icon: Users,
-      title: "Litigation",
-      description: "Aggressive representation in civil and commercial disputes",
-      details: "Our litigation practice covers a wide range of civil and commercial disputes. We combine strategic thinking with aggressive advocacy to achieve favorable outcomes for our clients in both state and federal courts.",
+      title: "Litigii",
+      description: "Reprezentare agresivă în disputele civile și comerciale",
+      details: "Practica noastră de litigii acoperă o gamă largă de dispute civile și comerciale. Combinăm gândirea strategică cu susținerea agresivă pentru a obține rezultate favorabile pentru clienții noștri în instanțele de stat și federale.",
       services: [
-        "Commercial Litigation",
-        "Contract Disputes",
-        "Employment Law",
-        "Personal Injury",
-        "Business Torts",
-        "Appeals"
+        "Litigii Comerciale",
+        "Dispute Contractuale",
+        "Dreptul Muncii",
+        "Prejudicii Personale",
+        "Prejudicii Comerciale",
+        "Apeluri"
       ]
     },
     {
       icon: FileText,
-      title: "Real Estate Law",
-      description: "Complete real estate legal services for all types of transactions",
-      details: "From residential purchases to complex commercial developments, we handle all aspects of real estate law. Our team ensures smooth transactions while protecting your interests throughout the process.",
+      title: "Dreptul Imobiliar",
+      description: "Servicii juridice complete pentru toate tipurile de tranzacții imobiliare",
+      details: "De la achiziții rezidențiale la dezvoltări comerciale complexe, gestionăm toate aspectele dreptului imobiliar. Echipa noastră asigură tranzacții fără probleme în timp ce vă protejează interesele pe tot parcursul procesului.",
       services: [
-        "Residential Transactions",
-        "Commercial Real Estate",
-        "Property Development",
-        "Zoning & Land Use",
-        "Landlord-Tenant Law",
-        "Real Estate Litigation"
+        "Tranzacții Rezidențiale",
+        "Imobiliare Comerciale",
+        "Dezvoltarea Proprietății",
+        "Zonare și Utilizarea Terenurilor",
+        "Dreptul Proprietar-Chiriași",
+        "Litigii Imobiliare"
       ]
     },
     {
       icon: BookOpen,
-      title: "Intellectual Property",
-      description: "Protecting your innovations, brands, and creative works",
-      details: "In today's knowledge economy, intellectual property is often your most valuable asset. We help protect, enforce, and monetize your IP rights through comprehensive legal strategies.",
+      title: "Proprietatea Intelectuală",
+      description: "Protejarea inovațiilor, mărcilor și lucrărilor creative",
+      details: "În economia cunoașterii de astăzi, proprietatea intelectuală este adesea cel mai valoros activ al dvs. Vă ajutăm să protejați, să aplicați și să monetizați drepturile de PI prin strategii juridice cuprinzătoare.",
       services: [
-        "Patent Applications",
-        "Trademark Registration",
-        "Copyright Protection",
-        "Trade Secrets",
-        "IP Licensing",
-        "IP Litigation"
+        "Cereri de Brevete",
+        "Înregistrarea Mărcilor",
+        "Protecția Drepturilor de Autor",
+        "Secrete Comerciale",
+        "Licențierea PI",
+        "Litigii PI"
       ]
     }
   ];
@@ -74,10 +73,10 @@ const PracticeAreasPage = () => {
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-6">Practice Areas</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We provide comprehensive legal services across multiple practice areas, 
-              combining deep expertise with innovative technology to deliver exceptional results.
+            <h1 className="text-4xl font-bold mb-6 font-playfair text-foreground">Domeniile de Practică</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-source-sans">
+              Oferim servicii juridice cuprinzătoare în multiple domenii de practică, 
+              combinând expertiza profundă cu tehnologia inovatoare pentru a livra rezultate excepționale.
             </p>
           </div>
 
@@ -92,25 +91,25 @@ const PracticeAreasPage = () => {
                         <area.icon className="h-10 w-10 text-primary" />
                       </div>
                       <Badge variant="secondary" className="text-sm">
-                        Specialized Practice
+                        Practică Specializată
                       </Badge>
                     </div>
                   </div>
                   <div className="md:w-2/3">
                     <CardHeader>
-                      <CardTitle className="text-2xl">{area.title}</CardTitle>
-                      <CardDescription className="text-lg">{area.description}</CardDescription>
+                      <CardTitle className="text-2xl font-playfair text-foreground">{area.title}</CardTitle>
+                      <CardDescription className="text-lg font-source-sans">{area.description}</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                      <p className="text-muted-foreground">{area.details}</p>
+                      <p className="text-muted-foreground font-source-sans">{area.details}</p>
                       
                       <div>
-                        <h4 className="font-semibold mb-3">Services Include:</h4>
+                        <h4 className="font-semibold mb-3 font-source-sans text-foreground">Serviciile includ:</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                           {area.services.map((service, idx) => (
                             <div key={idx} className="flex items-center">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                              <span className="text-sm">{service}</span>
+                              <span className="text-sm font-source-sans text-foreground">{service}</span>
                             </div>
                           ))}
                         </div>
@@ -118,7 +117,7 @@ const PracticeAreasPage = () => {
                       
                       <div className="pt-4">
                         <Button asChild>
-                          <Link to="/contact">Discuss Your Case</Link>
+                          <Link to="/contact">Discutați Cazul Dvs.</Link>
                         </Button>
                       </div>
                     </CardContent>
@@ -132,22 +131,22 @@ const PracticeAreasPage = () => {
           <div className="text-center mt-16">
             <Card className="max-w-2xl mx-auto">
               <CardHeader>
-                <CardTitle className="text-2xl">Need Legal Assistance?</CardTitle>
-                <CardDescription>
-                  Don't see your specific legal matter listed? We handle a wide range of legal issues.
+                <CardTitle className="text-2xl font-playfair text-foreground">Aveți nevoie de asistență juridică?</CardTitle>
+                <CardDescription className="font-source-sans">
+                  Nu vă regăsiți problema juridică specifică în listă? Gestionăm o gamă largă de probleme juridice.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Every legal situation is unique. Contact us today to discuss your specific needs 
-                  and learn how we can help you achieve the best possible outcome.
+                <p className="text-muted-foreground font-source-sans">
+                  Fiecare situație juridică este unică. Contactați-ne astăzi pentru a discuta nevoile dvs. specifice 
+                  și aflați cum vă putem ajuta să obțineți cel mai bun rezultat posibil.
                 </p>
                 <div className="space-x-4">
                   <Button size="lg" asChild>
-                    <Link to="/contact">Schedule Consultation</Link>
+                    <Link to="/contact">Programați Consultația</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
-                    <Link to="/ai-lawyer">Ask AI Assistant</Link>
+                    <Link to="/ai-lawyer">Întrebați Asistentul IA</Link>
                   </Button>
                 </div>
               </CardContent>

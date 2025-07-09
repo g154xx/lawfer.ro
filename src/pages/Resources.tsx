@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,50 +9,50 @@ import Footer from "@/components/Footer";
 const Resources = () => {
   const legalGuides = [
     {
-      title: "Starting a Business: Legal Checklist",
-      description: "Essential legal steps when forming a new business entity",
-      category: "Corporate Law",
-      readTime: "10 min read"
+      title: "Înființarea unei Afaceri: Lista de Verificare Juridică",
+      description: "Pașii juridici esențiali pentru înființarea unei noi entități comerciale",
+      category: "Drept Comercial",
+      readTime: "10 min citire"
     },
     {
-      title: "Understanding Employment Contracts",
-      description: "Key terms and clauses every employee should know",
-      category: "Employment Law",
-      readTime: "8 min read"
+      title: "Înțelegerea Contractelor de Muncă",
+      description: "Termenii și clauzele cheie pe care fiecare angajat ar trebui să le cunoască",
+      category: "Dreptul Muncii",
+      readTime: "8 min citire"
     },
     {
-      title: "Real Estate Purchase Guide",
-      description: "Navigate the legal aspects of buying property",
-      category: "Real Estate",
-      readTime: "15 min read"
+      title: "Ghidul pentru Cumpărarea Imobilelor",
+      description: "Navigați aspectele juridice ale cumpărării proprietății",
+      category: "Drept Imobiliar",
+      readTime: "15 min citire"
     },
     {
-      title: "Intellectual Property Basics",
-      description: "Protecting your ideas, brands, and creative works",
-      category: "IP Law",
-      readTime: "12 min read"
+      title: "Noțiuni de Bază ale Proprietății Intelectuale",
+      description: "Protejarea ideilor, mărcilor și lucrărilor creative",
+      category: "Drept PI",
+      readTime: "12 min citire"
     }
   ];
 
   const legalForms = [
     {
-      title: "Non-Disclosure Agreement (NDA)",
-      description: "Protect confidential information in business relationships",
+      title: "Acord de Confidențialitate (NDA)",
+      description: "Protejați informațiile confidențiale în relațiile comerciale",
       premium: false
     },
     {
-      title: "Employment Contract Template",
-      description: "Comprehensive employment agreement template",
+      title: "Șablon Contract de Muncă",
+      description: "Șablon cuprinzător pentru acordul de angajare",
       premium: true
     },
     {
-      title: "Service Agreement",
-      description: "Professional services contract template",
+      title: "Acord de Servicii",
+      description: "Șablon pentru contractul de servicii profesionale",
       premium: true
     },
     {
-      title: "Partnership Agreement",
-      description: "Business partnership formation documents",
+      title: "Acord de Parteneriat",
+      description: "Documente pentru înființarea parteneriatului comercial",
       premium: true
     }
   ];
@@ -65,10 +64,10 @@ const Resources = () => {
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-6">Legal Resources</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Access our comprehensive library of legal guides, templates, and resources 
-              to help you understand and navigate legal matters with confidence.
+            <h1 className="text-4xl font-bold mb-6 font-playfair text-foreground">Resurse Juridice</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-source-sans">
+              Accesați biblioteca noastră cuprinzătoare de ghiduri juridice, șabloane și resurse 
+              pentru a vă ajuta să înțelegeți și să navigați problemele juridice cu încredere.
             </p>
           </div>
 
@@ -76,7 +75,7 @@ const Resources = () => {
           <section className="mb-16">
             <div className="flex items-center mb-8">
               <BookOpen className="h-6 w-6 text-primary mr-3" />
-              <h2 className="text-2xl font-bold">Legal Guides & Articles</h2>
+              <h2 className="text-2xl font-bold font-playfair text-foreground">Ghiduri și Articole Juridice</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -85,14 +84,14 @@ const Resources = () => {
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <Badge variant="secondary">{guide.category}</Badge>
-                      <span className="text-sm text-muted-foreground">{guide.readTime}</span>
+                      <span className="text-sm text-muted-foreground font-source-sans">{guide.readTime}</span>
                     </div>
-                    <CardTitle className="text-lg">{guide.title}</CardTitle>
-                    <CardDescription>{guide.description}</CardDescription>
+                    <CardTitle className="text-lg font-playfair text-foreground">{guide.title}</CardTitle>
+                    <CardDescription className="font-source-sans">{guide.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Button variant="outline" size="sm">
-                      Read Guide
+                      Citește Ghidul
                     </Button>
                   </CardContent>
                 </Card>
@@ -104,7 +103,7 @@ const Resources = () => {
           <section className="mb-16">
             <div className="flex items-center mb-8">
               <FileText className="h-6 w-6 text-primary mr-3" />
-              <h2 className="text-2xl font-bold">Legal Forms & Templates</h2>
+              <h2 className="text-2xl font-bold font-playfair text-foreground">Formulare și Șabloane Juridice</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -115,20 +114,20 @@ const Resources = () => {
                       {form.premium ? (
                         <Badge>Premium</Badge>
                       ) : (
-                        <Badge variant="outline">Free</Badge>
+                        <Badge variant="outline">Gratuit</Badge>
                       )}
                     </div>
-                    <CardTitle className="text-lg">{form.title}</CardTitle>
-                    <CardDescription>{form.description}</CardDescription>
+                    <CardTitle className="text-lg font-playfair text-foreground">{form.title}</CardTitle>
+                    <CardDescription className="font-source-sans">{form.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     {form.premium ? (
                       <Button size="sm" asChild>
-                        <Link to="/pricing">Upgrade for Access</Link>
+                        <Link to="/pricing">Upgrade pentru Acces</Link>
                       </Button>
                     ) : (
                       <Button variant="outline" size="sm">
-                        Download Free
+                        Descarcă Gratuit
                       </Button>
                     )}
                   </CardContent>
@@ -141,45 +140,45 @@ const Resources = () => {
           <section className="mb-16">
             <div className="flex items-center mb-8">
               <Gavel className="h-6 w-6 text-primary mr-3" />
-              <h2 className="text-2xl font-bold">Frequently Asked Legal Questions</h2>
+              <h2 className="text-2xl font-bold font-playfair text-foreground">Întrebări Juridice Frecvente</h2>
             </div>
             
             <div className="space-y-4">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Do I need a lawyer to start a business?</CardTitle>
+                  <CardTitle className="text-lg font-playfair text-foreground">Am nevoie de avocat pentru a începe o afacere?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    While not legally required, consulting with a lawyer when starting a business is highly recommended. 
-                    A lawyer can help you choose the right business structure, draft important documents, ensure compliance 
-                    with regulations, and protect your interests from the start.
+                  <p className="text-muted-foreground font-source-sans">
+                    Deși nu este obligatoriu din punct de vedere legal, consultarea unui avocat la începerea unei afaceri este foarte recomandată. 
+                    Un avocat vă poate ajuta să alegeți structura comercială potrivită, să redacteze documente importante, să asigure conformitatea 
+                    cu reglementările și să vă protejeze interesele de la început.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">What should I do if I receive a legal notice?</CardTitle>
+                  <CardTitle className="text-lg font-playfair text-foreground">Ce ar trebui să fac dacă primesc o citație juridică?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Don't ignore it! Read the notice carefully, note any deadlines, and contact a lawyer immediately. 
-                    Many legal notices have strict time limits for response, and failing to respond can result in 
-                    default judgments or other adverse consequences.
+                  <p className="text-muted-foreground font-source-sans">
+                    Nu o ignorați! Citiți citația cu atenție, notați orice termene limită și contactați imediat un avocat. 
+                    Multe citații juridice au limite de timp stricte pentru răspuns, iar nerespectarea poate duce la 
+                    hotărâri prin lipsă sau alte consecințe adverse.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">How much does legal representation cost?</CardTitle>
+                  <CardTitle className="text-lg font-playfair text-foreground">Cât costă reprezentarea juridică?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Legal fees vary depending on the complexity of the matter, the attorney's experience, and your location. 
-                    We offer transparent pricing with options including hourly rates, flat fees for specific services, and 
-                    subscription plans for ongoing legal support.
+                  <p className="text-muted-foreground font-source-sans">
+                    Onorariile juridice variază în funcție de complexitatea problemei, experiența avocatului și locația dvs. 
+                    Oferim prețuri transparente cu opțiuni incluzând tarife orare, taxe fixe pentru servicii specifice și 
+                    planuri de abonament pentru suport juridic continuu.
                   </p>
                 </CardContent>
               </Card>
@@ -193,22 +192,22 @@ const Resources = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="text-2xl">Need Personalized Legal Advice?</CardTitle>
-                <CardDescription className="text-lg">
-                  While our resources provide general information, every legal situation is unique.
+                <CardTitle className="text-2xl font-playfair text-foreground">Aveți nevoie de consiliere juridică personalizată?</CardTitle>
+                <CardDescription className="text-lg font-source-sans">
+                  Deși resursele noastre oferă informații generale, fiecare situație juridică este unică.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Get personalized legal advice tailored to your specific situation with our AI-powered 
-                  legal assistant or schedule a consultation with our experienced attorney.
+                <p className="text-muted-foreground font-source-sans">
+                  Obțineți consiliere juridică personalizată adaptată situației dvs. specifice cu asistentul nostru juridic bazat pe IA 
+                  sau programați o consultație cu avocatul nostru experimentat.
                 </p>
                 <div className="space-x-4">
                   <Button size="lg" asChild>
-                    <Link to="/contact">Schedule Consultation</Link>
+                    <Link to="/contact">Programați Consultația</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
-                    <Link to="/ai-lawyer">Try AI Assistant</Link>
+                    <Link to="/ai-lawyer">Încercați Asistentul IA</Link>
                   </Button>
                 </div>
               </CardContent>

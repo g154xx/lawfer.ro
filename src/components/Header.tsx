@@ -33,15 +33,15 @@ const Header = () => {
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-primary" />
+                <Phone className="h-4 w-4 text-teal-400" />
                 <span className="text-foreground">+40 721 123 456</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-primary" />
+                <Mail className="h-4 w-4 text-teal-400" />
                 <span className="text-foreground">office@lawfer.ro</span>
               </div>
               <div className="hidden md:flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-primary" />
+                <MapPin className="h-4 w-4 text-teal-400" />
                 <span className="text-foreground">București, Sectorul 1</span>
               </div>
             </div>
@@ -68,10 +68,10 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 relative group font-source-sans"
+                  className="text-sm font-medium text-foreground hover:text-teal-400 transition-colors duration-200 relative group font-source-sans"
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-400 transition-all duration-200 group-hover:w-full"></span>
                 </Link>
               ))}
             </nav>
@@ -97,11 +97,11 @@ const Header = () => {
                   {/* Informații contact în mobile menu */}
                   <div className="border-b border-border pb-4 space-y-2">
                     <div className="flex items-center space-x-2 text-sm text-foreground">
-                      <Phone className="h-4 w-4 text-primary" />
+                      <Phone className="h-4 w-4 text-teal-400" />
                       <span>+40 721 123 456</span>
                     </div>
                     <div className="flex items-center space-x-2 text-sm text-foreground">
-                      <Mail className="h-4 w-4 text-primary" />
+                      <Mail className="h-4 w-4 text-teal-400" />
                       <span>office@lawfer.ro</span>
                     </div>
                   </div>
@@ -110,7 +110,7 @@ const Header = () => {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="text-lg font-medium transition-colors hover:text-primary border-b border-border pb-2 font-source-sans text-foreground"
+                      className="text-lg font-medium transition-colors hover:text-teal-400 border-b border-border pb-2 font-source-sans text-foreground"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}

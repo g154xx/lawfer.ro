@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,10 +13,10 @@ const Pricing = () => {
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-6">Simple, Transparent Pricing</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Choose the plan that works best for your legal needs. All plans include access to our AI legal assistant 
-              and premium support from qualified attorneys.
+            <h1 className="text-4xl font-bold mb-6 font-playfair text-foreground">Prețuri Simple și Transparente</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-source-sans">
+              Alegeți planul care funcționează cel mai bine pentru nevoile dvs. juridice. Toate planurile includ acces la asistentul nostru juridic IA 
+              și suport premium de la avocați calificați.
             </p>
           </div>
 
@@ -26,34 +25,34 @@ const Pricing = () => {
             {/* Basic Consultation */}
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader className="text-center">
-                <CardTitle className="text-xl">One-Time Consultation</CardTitle>
-                <CardDescription>Perfect for specific legal questions</CardDescription>
+                <CardTitle className="text-xl font-playfair text-foreground">Consultație Unică</CardTitle>
+                <CardDescription className="font-source-sans">Perfectă pentru întrebări juridice specifice</CardDescription>
                 <div className="mt-4">
-                  <div className="text-3xl font-bold">$150</div>
-                  <div className="text-muted-foreground">per consultation</div>
+                  <div className="text-3xl font-bold text-primary">150€</div>
+                  <div className="text-muted-foreground font-source-sans">per consultație</div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">1-hour consultation</span>
+                    <span className="text-sm font-source-sans text-foreground">Consultație de 1 oră</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Follow-up email summary</span>
+                    <span className="text-sm font-source-sans text-foreground">Rezumat prin email de urmărire</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Basic document review</span>
+                    <span className="text-sm font-source-sans text-foreground">Revizuire de bază a documentelor</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Legal guidance & recommendations</span>
+                    <span className="text-sm font-source-sans text-foreground">Îndrumare juridică și recomandări</span>
                   </div>
                 </div>
                 <Button className="w-full" asChild>
-                  <Link to="/contact">Book Consultation</Link>
+                  <Link to="/contact">Rezervați Consultația</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -61,48 +60,48 @@ const Pricing = () => {
             {/* Premium AI Plan */}
             <Card className="border-2 border-primary hover:shadow-lg transition-shadow relative">
               <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                Most Popular
+                Cel mai Popular
               </Badge>
               <CardHeader className="text-center">
-                <CardTitle className="text-xl">AI Legal Assistant</CardTitle>
-                <CardDescription>24/7 AI-powered legal support</CardDescription>
+                <CardTitle className="text-xl font-playfair text-foreground">Asistent Juridic IA</CardTitle>
+                <CardDescription className="font-source-sans">Suport juridic IA 24/7</CardDescription>
                 <div className="mt-4">
-                  <div className="text-3xl font-bold">$99</div>
-                  <div className="text-muted-foreground">per month</div>
+                  <div className="text-3xl font-bold text-primary">99€</div>
+                  <div className="text-muted-foreground font-source-sans">pe lună</div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Unlimited AI consultations</span>
+                    <span className="text-sm font-source-sans text-foreground">Consultații IA nelimitate</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Document analysis & review</span>
+                    <span className="text-sm font-source-sans text-foreground">Analiză și revizuire documente</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">24/7 legal research</span>
+                    <span className="text-sm font-source-sans text-foreground">Cercetare juridică 24/7</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Priority attorney access</span>
+                    <span className="text-sm font-source-sans text-foreground">Acces prioritar la avocat</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Legal form templates</span>
+                    <span className="text-sm font-source-sans text-foreground">Șabloane de formulare juridice</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Monthly attorney consultation</span>
+                    <span className="text-sm font-source-sans text-foreground">Consultație lunară cu avocatul</span>
                   </div>
                 </div>
                 <Button className="w-full" asChild>
-                  <Link to="/ai-lawyer">Start Free Trial</Link>
+                  <Link to="/ai-lawyer">Începeți Perioada Gratuită</Link>
                 </Button>
-                <p className="text-xs text-muted-foreground text-center">
-                  7-day free trial • Cancel anytime
+                <p className="text-xs text-muted-foreground text-center font-source-sans">
+                  Perioadă gratuită de 7 zile • Anulați oricând
                 </p>
               </CardContent>
             </Card>
@@ -110,42 +109,42 @@ const Pricing = () => {
             {/* Enterprise */}
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader className="text-center">
-                <CardTitle className="text-xl">Enterprise</CardTitle>
-                <CardDescription>For businesses with ongoing legal needs</CardDescription>
+                <CardTitle className="text-xl font-playfair text-foreground">Întreprinderi</CardTitle>
+                <CardDescription className="font-source-sans">Pentru companii cu nevoi juridice continue</CardDescription>
                 <div className="mt-4">
-                  <div className="text-3xl font-bold">Custom</div>
-                  <div className="text-muted-foreground">pricing</div>
+                  <div className="text-3xl font-bold text-primary">Personalizat</div>
+                  <div className="text-muted-foreground font-source-sans">prețuri</div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Everything in AI plan</span>
+                    <span className="text-sm font-source-sans text-foreground">Tot din planul IA</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Dedicated attorney</span>
+                    <span className="text-sm font-source-sans text-foreground">Avocat dedicat</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Unlimited consultations</span>
+                    <span className="text-sm font-source-sans text-foreground">Consultații nelimitate</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Custom legal documents</span>
+                    <span className="text-sm font-source-sans text-foreground">Documente juridice personalizate</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Priority response time</span>
+                    <span className="text-sm font-source-sans text-foreground">Timp de răspuns prioritar</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">Quarterly business reviews</span>
+                    <span className="text-sm font-source-sans text-foreground">Revizuiri trimestriale ale afacerii</span>
                   </div>
                 </div>
                 <Button variant="outline" className="w-full" asChild>
-                  <Link to="/contact">Contact Sales</Link>
+                  <Link to="/contact">Contactați Vânzările</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -153,42 +152,42 @@ const Pricing = () => {
 
           {/* FAQ Section */}
           <div className="mt-20 max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-center mb-8 font-playfair text-foreground">Întrebări Frecvente</h2>
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">How does the AI legal assistant work?</CardTitle>
+                  <CardTitle className="text-lg font-playfair text-foreground">Cum funcționează asistentul juridic IA?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Our AI assistant uses advanced natural language processing to understand your legal questions 
-                    and provide accurate, up-to-date legal information. It can analyze documents, research case law, 
-                    and provide guidance on various legal matters.
+                  <p className="text-muted-foreground font-source-sans">
+                    Asistentul nostru IA folosește procesarea avansată a limbajului natural pentru a înțelege întrebările dvs. juridice 
+                    și pentru a furniza informații juridice precise și actualizate. Poate analiza documente, cerceta jurisprudența 
+                    și furniza îndrumări pe diverse probleme juridice.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Can I cancel my subscription anytime?</CardTitle>
+                  <CardTitle className="text-lg font-playfair text-foreground">Pot să îmi anulez abonamentul oricând?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Yes, you can cancel your subscription at any time. There are no long-term contracts or cancellation fees. 
-                    You'll continue to have access to your subscription benefits until the end of your current billing period.
+                  <p className="text-muted-foreground font-source-sans">
+                    Da, vă puteți anula abonamentul oricând. Nu există contracte pe termen lung sau taxe de anulare. 
+                    Veți continua să aveți acces la beneficiile abonamentului până la sfârșitul perioadei curente de facturare.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Is my information confidential?</CardTitle>
+                  <CardTitle className="text-lg font-playfair text-foreground">Sunt informațiile mele confidențiale?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Absolutely. All communications and information shared through our platform are protected by 
-                    attorney-client privilege and strict confidentiality agreements. We use enterprise-grade security 
-                    to protect your data.
+                  <p className="text-muted-foreground font-source-sans">
+                    Absolut. Toate comunicările și informațiile partajate prin platforma noastră sunt protejate de 
+                    privilegiul avocat-client și acorduri stricte de confidențialitate. Folosim securitate de nivel enterprise 
+                    pentru a vă proteja datele.
                   </p>
                 </CardContent>
               </Card>
