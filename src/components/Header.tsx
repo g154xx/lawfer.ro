@@ -58,8 +58,8 @@ const Header = () => {
           <div className="flex h-16 items-center justify-between">
             {/* Logo Royal Cursive - same as Footer */}
             <Link to="/" className="flex items-center space-x-2">
-              <Scale className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold text-primary royal-logo">Lawfer</span>
+              <Scale className="h-8 w-8 text-teal-400" />
+              <span className="text-2xl font-bold text-teal-400 font-sans tracking-wide uppercase">Lawfer</span>
             </Link>
 
             {/* Desktop Navigation - stil clean Hogan Lovells */}
