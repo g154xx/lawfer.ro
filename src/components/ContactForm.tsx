@@ -124,9 +124,9 @@ const ContactForm = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl">Request Free Consultation</CardTitle>
+        <CardTitle className="text-2xl">Solicitare Consultație Gratuită</CardTitle>
         <CardDescription>
-          Fill out the form below and we'll contact you within 24 hours
+          Completați formularul de mai jos și vă vom contacta în termen de 24 de ore
           {user && (
             <span className="block mt-2 text-sm font-medium text-primary">
               Conectat ca: {user.email}
@@ -138,19 +138,19 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="name">Full Name *</Label>
+              <Label htmlFor="name">Nume Complet *</Label>
               <Input
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                placeholder="John Smith"
+                placeholder="Ion Popescu"
                 maxLength={100}
               />
             </div>
             <div>
-              <Label htmlFor="email">Email Address *</Label>
+              <Label htmlFor="email">Adresă Email *</Label>
               <Input
                 id="email"
                 name="email"
@@ -158,27 +158,27 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="john@example.com"
+                placeholder="ion@exemplu.ro"
                 maxLength={255}
               />
             </div>
           </div>
 
           <div>
-            <Label htmlFor="phone">Phone Number</Label>
+            <Label htmlFor="phone">Număr de Telefon</Label>
             <Input
               id="phone"
               name="phone"
               type="tel"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="(555) 123-4567"
+              placeholder="+40 721 123 456"
               maxLength={20}
             />
           </div>
 
           <div>
-            <Label htmlFor="legalMatter">Type of Legal Matter *</Label>
+            <Label htmlFor="legalMatter">Tipul Problemei Juridice *</Label>
             <select
               id="legalMatter"
               name="legalMatter"
@@ -187,18 +187,18 @@ const ContactForm = () => {
               required
               className="w-full h-10 px-3 py-2 border border-input bg-background rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              <option value="">Select legal matter type</option>
-              <option value="corporate">Corporate Law</option>
-              <option value="litigation">Litigation</option>
-              <option value="real-estate">Real Estate</option>
-              <option value="intellectual-property">Intellectual Property</option>
-              <option value="employment">Employment Law</option>
-              <option value="other">Other</option>
+              <option value="">Selectați tipul problemei juridice</option>
+              <option value="corporate">Drept Comercial</option>
+              <option value="litigation">Litigii</option>
+              <option value="real-estate">Imobiliare</option>
+              <option value="intellectual-property">Proprietate Intelectuală</option>
+              <option value="employment">Dreptul Muncii</option>
+              <option value="other">Altele</option>
             </select>
           </div>
 
           <div>
-            <Label htmlFor="message">Message *</Label>
+            <Label htmlFor="message">Mesaj *</Label>
             <textarea
               id="message"
               name="message"
@@ -206,7 +206,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               rows={4}
-              placeholder="Please describe your legal matter and any specific questions you have..."
+              placeholder="Vă rugăm să descrieți problema juridică și orice întrebări specifice pe care le aveți..."
               className="w-full px-3 py-2 border border-input bg-background rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               maxLength={2000}
             />
@@ -216,12 +216,12 @@ const ContactForm = () => {
           </div>
 
           <Button type="submit" size="lg" className="w-full" disabled={loading}>
-            {loading ? "Se trimite..." : "Request Free Consultation"}
+            {loading ? "Se trimite..." : "Solicitare Consultație Gratuită"}
           </Button>
 
           <p className="text-sm text-muted-foreground text-center">
-            By submitting this form, you agree to our privacy policy. 
-            All communications are confidential and protected by attorney-client privilege.
+            Prin trimiterea acestui formular, sunteți de acord cu politica noastră de confidențialitate. 
+            Toate comunicările sunt confidențiale și protejate de privilegiul avocat-client.
           </p>
         </form>
       </CardContent>
