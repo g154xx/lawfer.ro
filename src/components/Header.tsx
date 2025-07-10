@@ -56,10 +56,13 @@ const Header = () => {
       <header className="sticky top-0 z-50 w-full bg-card/80 backdrop-blur-md border-b border-border/50 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            {/* Logo Royal Cursive - same as Footer */}
-            <Link to="/" className="flex items-center space-x-2">
-              <Scale className="h-8 w-8 text-teal-400" />
-              <span className="text-2xl font-bold text-teal-400 font-sans tracking-wide uppercase">Lawfer</span>
+            {/* Logo integrated with background */}
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/lovable-uploads/3b592205-d3ac-4efa-a711-06996be47db7.png" 
+                alt="Lawfer Law Firm" 
+                className="h-12 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop Navigation - stil clean Hogan Lovells */}
