@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <>
       {/* Top Bar cu informații de contact - stil Hogan Lovells */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-teal-700 text-white py-2 text-sm border-b border-white/20">
+      <div className="bg-blue-900 text-white py-2 text-sm border-b border-white/20">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6">
@@ -57,7 +57,7 @@ const Header = () => {
       </div>
 
       {/* Main Header - stil Hogan Lovells */}
-      <header className="sticky top-0 z-50 w-full bg-gradient-to-r from-blue-900 via-blue-800 to-teal-700 border-b border-white/20 shadow-lg">
+      <header className="sticky top-0 z-50 w-full bg-blue-900 border-b border-white/20 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             {/* Logo integrated with background */}
@@ -99,7 +99,7 @@ const Header = () => {
                   <span className="sr-only">Deschide meniu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80 bg-gradient-to-b from-blue-900 to-teal-700 border-white/20 text-white">
+              <SheetContent side="right" className="w-80 bg-blue-900 border-white/20 text-white">
                 <div className="flex flex-col space-y-6 mt-8">
                   {/* Informații contact în mobile menu */}
                   <div className="border-b border-white/20 pb-4 space-y-2">
