@@ -20,10 +20,11 @@ export const LegalChatMini = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('/functions/v1/legal-chat', {
+      const response = await fetch('https://frgdwxlqqnrqewcvzzkh.supabase.co/functions/v1/legal-chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyZ2R3eGxxcW5ycWV3Y3Z6emtoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3NDMzNzEsImV4cCI6MjA2NTMxOTM3MX0.yH1eQ4avKygXJ7C6alkK9Wm-Leybb8Cbnia6SuZhxy8`,
         },
         body: JSON.stringify({ message }),
       });
