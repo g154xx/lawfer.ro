@@ -97,7 +97,6 @@
 
   body {
     @apply text-foreground font-source-sans;
-    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 25%, #1e40af 75%, #1e3a8a 100%);
     min-height: 100vh;
   }
 }
