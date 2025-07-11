@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Phone, Mail, MapPin, Menu, Scale } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Phone, Mail, MapPin, Menu, Scale, ChevronDown, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRole } from "@/hooks/useRole";
 import UserMenu from "./UserMenu";
@@ -50,7 +51,26 @@ const Header = () => {
               </div>
             </div>
             <div className="hidden md:block">
-              <span className="text-white/80">Program: Luni - Vineri 09:00 - 18:00</span>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="text-white hover:bg-white/10 gap-2">
+                    <Globe className="h-4 w-4" />
+                    <span>Limba</span>
+                    <ChevronDown className="h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="bg-card border-white/20">
+                  <DropdownMenuItem className="cursor-pointer">
+                    🇷🇴 Română
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">
+                    🇩🇪 Germană
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">
+                    🇺🇸 Engleză
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
