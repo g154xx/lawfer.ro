@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <>
       {/* Top Bar cu informații de contact - stil Hogan Lovells */}
-      <div className="bg-blue-900 text-white py-2 text-sm border-b border-white/20">
+      <div className="bg-gradient-to-r from-teal-600 to-blue-900 text-white py-2 text-sm border-b border-white/20">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6">
@@ -57,13 +57,13 @@ const Header = () => {
       </div>
 
       {/* Main Header - stil Hogan Lovells */}
-      <header className="sticky top-0 z-50 w-full bg-blue-900 border-b border-white/20 shadow-lg">
+      <header className="sticky top-0 z-50 w-full bg-gradient-to-r from-teal-600 to-blue-900 border-b border-white/20 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             {/* Logo integrated with background */}
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/3b592205-d3ac-4efa-a711-06996be47db7.png" 
+                src="/lovable-uploads/03a3da23-54f8-4588-a63f-0c0d56908a4c.png" 
                 alt="Lawfer Law Firm" 
                 className="h-12 w-auto object-contain"
               />
@@ -99,7 +99,7 @@ const Header = () => {
                   <span className="sr-only">Deschide meniu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80 bg-blue-900 border-white/20 text-white">
+              <SheetContent side="right" className="w-80 bg-gradient-to-b from-teal-600 to-blue-900 border-white/20 text-white">
                 <div className="flex flex-col space-y-6 mt-8">
                   {/* Informații contact în mobile menu */}
                   <div className="border-b border-white/20 pb-4 space-y-2">
