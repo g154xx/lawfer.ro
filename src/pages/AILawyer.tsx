@@ -7,6 +7,7 @@ import { Search, FileText, BookOpen, Users, Gavel } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { LegalChatMini } from "@/components/LegalChatMini";
 
 const AILawyer = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,6 +52,9 @@ const AILawyer = () => {
               cu acces direct la avocați calificați când este necesar.
             </p>
           </div>
+
+          {/* Legal Chat Mini */}
+          <LegalChatMini />
 
           {/* AI Interface */}
           <div className="max-w-4xl mx-auto mb-16">
