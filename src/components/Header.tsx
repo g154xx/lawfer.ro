@@ -16,9 +16,14 @@ const Header = () => {
   const navigationItems = [
     { name: "Acasă", href: "/" },
     { name: "Despre Cabinet", href: "/about" },
-    { name: "Servicii Juridice", href: "/practice-areas" },
+    { name: "Drept Penal", href: "/practice-areas#penal" },
+    { name: "Drept Civil", href: "/practice-areas#civil" },
+    { name: "Dreptul Familiei", href: "/practice-areas#familie" },
+    { name: "Executări Silite", href: "/practice-areas#executari" },
+    { name: "Dreptul Muncii", href: "/practice-areas#munca" },
     { name: "Asistent IA", href: "/ai-lawyer" },
     { name: "Resurse Utile", href: "/resources" },
+    { name: "Blog", href: "/resources#blog" },
     { name: "Contact", href: "/contact" },
   ];
 
